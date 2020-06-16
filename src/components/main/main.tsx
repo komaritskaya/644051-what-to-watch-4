@@ -1,11 +1,8 @@
 import React from 'react';
+import {Movie} from '../../types';
 
 interface MainProps {
-  currentMovie: {
-    title: string;
-    genre: string;
-    year: number;
-  };
+  currentMovie: Movie;
 }
 
 const Main: React.FC<MainProps> = ({currentMovie}: MainProps) => {
