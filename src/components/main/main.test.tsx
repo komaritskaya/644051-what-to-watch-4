@@ -1,16 +1,13 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import Main from './main';
+import {movies, currentMovie} from '../../mocks/films';
 
 it(`Should Main component render correctly`, () => {
   const tree = renderer
     .create(<Main
-      currentMovie={{
-        title: `The Grand Budapest Hotel`,
-        genre: `Drama`,
-        year: 2014
-      }}
-      // eslint-disable-next-line @typescript-eslint/no-empty-function
+      currentMovie={currentMovie}
+      movies={movies}
       onTitleClick={(): void => {}}
     />)
     .toJSON();

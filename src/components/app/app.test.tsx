@@ -1,15 +1,13 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import App from './app';
+import {movies, currentMovie} from '../../mocks/films';
 
 it(`Render App`, () => {
   const tree = renderer
     .create(<App
-      currentMovie={{
-        title: `The Grand Budapest Hotel`,
-        genre: `Drama`,
-        year: 2014
-      }}
+      currentMovie={currentMovie}
+      movies={movies}
     />)
     .toJSON();
 

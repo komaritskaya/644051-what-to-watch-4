@@ -1,15 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-
+import {movies, currentMovie} from './mocks/films';
 import App from './components/app/app';
 
-const CurrentMovie = {
-  title: `The Grand Budapest Hotel`,
-  genre: `Drama`,
-  year: 2014
-};
-
-ReactDOM.render(<App currentMovie={CurrentMovie} />, document.querySelector(`#root`));
+ReactDOM.render(
+    <App
+      currentMovie={currentMovie}
+      movies={movies}
+    />, document.querySelector(`#root`));
 
 
 //    /\_/\

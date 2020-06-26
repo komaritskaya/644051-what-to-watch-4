@@ -1,7 +1,8 @@
 import React from 'react';
-import Enzyme, {shallow} from 'enzyme';
+import Enzyme, {mount} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import Main from './main';
+import {currentMovie, movies} from '../../mocks/films';
 
 Enzyme.configure({
   adapter: new Adapter(),
@@ -10,22 +11,17 @@ Enzyme.configure({
 it(`Should title link be pressed`, () => {
   const onTitleClick = jest.fn();
 
-  const main = shallow(
+  const main = mount(
       <Main
-        currentMovie={{
-          title: `The Grand Budapest Hotel`,
-          genre: `Drama`,
-          year: 2014
-        }}
+        movies={movies}
+        currentMovie={currentMovie}
         onTitleClick={onTitleClick}
       />
   );
 
-  const titleLinks = main.find(`a.small-movie-card__link`);
+  const titleLink = main.find(`a.small-movie-card__link`).first();
 
-  titleLinks.forEach((link) => {
-    link.simulate(`click`);
-  });
+  titleLink.simulate(`click`);
 
-  expect(onTitleClick.mock.calls.length).toBe(20);
+  expect(onTitleClick.mock.calls.length).toBe(1);
 });

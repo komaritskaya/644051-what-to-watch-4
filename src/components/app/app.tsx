@@ -3,15 +3,16 @@ import Main from '../main/main';
 import {Movie} from '../../types';
 
 interface AppProps {
+  movies: Movie[];
   currentMovie: Movie;
 }
 
-// eslint-disable-next-line @typescript-eslint/no-empty-function
 const titleClickHandler = (): void => {};
 
-const App: React.FC<AppProps> = ({currentMovie}: AppProps) => {
+const App: React.FC<AppProps> = ({movies, currentMovie}: AppProps) => {
   return (
     <Main
+      movies={movies}
       currentMovie={currentMovie}
       onTitleClick={titleClickHandler}
     />
