@@ -2,7 +2,6 @@ import React from 'react';
 import Enzyme, {shallow} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import MovieCard from './movie-card';
-import {movies} from '../../mocks/films';
 
 Enzyme.configure({
   adapter: new Adapter(),
@@ -10,7 +9,13 @@ Enzyme.configure({
 
 it(`Should movie card be hovered`, () => {
   const onCardHover = jest.fn((...args) => [...args]);
-  const movie = movies[0];
+  const movie = {
+    id: `123`,
+    title: `Some Film`,
+    poster: `some-poster.jpg`,
+    genre: `comedy`,
+    year: 2000,
+  };
 
   const movieCard = shallow(
       <MovieCard
