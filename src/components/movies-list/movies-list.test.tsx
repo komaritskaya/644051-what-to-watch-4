@@ -1,8 +1,8 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import Main from './main';
+import MoviesList from './movies-list';
 
-it(`Should Main component render correctly`, () => {
+it(`Should Movies List component render correctly`, () => {
   const movies = [
     {
       id: `123`,
@@ -21,10 +21,9 @@ it(`Should Main component render correctly`, () => {
   ];
 
   const tree = renderer
-    .create(<Main
-      currentMovie={movies[0]}
+    .create(<MoviesList
       movies={movies}
-      onTitleClick={(): void => {}}
+      onTitleClick={() => {}}
     />)
     .toJSON();
 
