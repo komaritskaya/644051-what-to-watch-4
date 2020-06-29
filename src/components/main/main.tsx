@@ -5,10 +5,10 @@ import {Movie} from '../../types';
 interface MainProps {
   movies: Movie[];
   currentMovie: Movie;
-  onTitleClick: () => void;
+  onCardClick: (id: string) => void;
 }
 
-const Main: React.FC<MainProps> = ({movies, currentMovie, onTitleClick}: MainProps) => {
+const Main: React.FC<MainProps> = ({movies, currentMovie, onCardClick}: MainProps) => {
   const {title, genre, year} = currentMovie;
   return (
     <React.Fragment>
@@ -106,7 +106,7 @@ const Main: React.FC<MainProps> = ({movies, currentMovie, onTitleClick}: MainPro
 
           {
             <MoviesList
-              onTitleClick={onTitleClick}
+              onCardClick={onCardClick}
               movies={movies}
             />
           }

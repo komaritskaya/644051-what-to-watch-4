@@ -4,4 +4,10 @@ export interface Movie {
   genre: string;
   year: number;
   poster: string;
+  cover: string;
+  director: string;
+  cast: string[];
+  description: string;
+  rating: number;
+  reviewsCount: number;
 }

@@ -1,8 +1,8 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import MovieCard from './movie-card';
+import MoviePage from './movie-page';
 
-it(`Should Movie Card component render correctly`, () => {
+it(`Render Movie Page`, () => {
   const movie = {
     id: `123`,
     title: `Some Film`,
@@ -18,10 +18,8 @@ it(`Should Movie Card component render correctly`, () => {
   };
 
   const tree = renderer
-    .create(<MovieCard
+    .create(<MoviePage
       movie={movie}
-      onCardClick={() => {}}
-      onCardHover={() => {}}
     />)
     .toJSON();
 

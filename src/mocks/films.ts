@@ -29,7 +29,6 @@ const TITLES = [
 ];
 
 const POSTERS = [
-  `avatar.jpg`,
   `aviator.jpg`,
   `bohemian-rhapsody.jpg`,
   `dardjeeling-limited.jpg`,
@@ -54,14 +53,41 @@ const POSTERS = [
 ];
 
 const GENRES = [
-  `musical`,
-  `western`,
-  `drama`,
-  `comedy`,
-  `cartoon`,
-  `mystery`,
-  `horror`,
+  `Musical`,
+  `Western`,
+  `Drama`,
+  `Comedy`,
+  `Cartoon`,
+  `Mystery`,
+  `Horror`,
 ];
+
+const DIRECTORS = [
+  `Anthony Mann`,
+  `Woody Allen`,
+  `Pedro Almodovar`,
+  `Martin Scorsese`,
+  `David Lynch`,
+  `Alfred Hitchcock`,
+  `Takeshi Kitano`,
+];
+
+const ACTORS = [
+  `Erich von Stroheim`,
+  `Mary Beth Hughes`,
+  `Dan Duryea`,
+  `Jennifer Aniston`,
+  `Courteney Cox`,
+  `Lisa Kudrow`,
+  `Matt LeBlanc`,
+  `Matthew Perry`,
+  `David Schwimmer`,
+];
+
+const COVER = `bg-the-grand-budapest-hotel.jpg`;
+
+const DESCRIPTION = `In the 1930s, the Grand Budapest Hotel is a popular European ski resort, presided over by concierge Gustave H. (Ralph Fiennes). Zero, a junior lobby boy, becomes Gustave's friend and protege.\nGustave prides himself on providing first-class service to the hotel's guests, including satisfying the sexual needs of the many elderly women who stay there. When one of Gustave's lovers dies mysteriously, Gustave finds himself the recipient of a priceless painting and the chief suspect in her murder.
+`;
 
 const getRandomInt = (min, max) => {
   min = Math.ceil(min);
@@ -69,16 +95,39 @@ const getRandomInt = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 };
 
-export const getRandomItemFromArray = (arr) => {
+const getRandomBool = () => {
+  return Math.random() < 0.5;
+};
+
+const getSingleRandomItemFromArray = (arr) => {
   return arr[getRandomInt(0, arr.length - 1)];
+};
+
+const getMultipleRandomItemsFromArray = (arr) => {
+  const newArr = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (getRandomBool()) {
+      newArr.push(arr[i]);
+    }
+  }
+  if (newArr.length === 0) {
+    newArr.push(getSingleRandomItemFromArray(arr));
+  }
+  return newArr;
 };
 
 const generateMovie = () => ({
   id: nanoid(),
-  title: getRandomItemFromArray(TITLES),
-  poster: getRandomItemFromArray(POSTERS),
-  genre: getRandomItemFromArray(GENRES),
+  title: getSingleRandomItemFromArray(TITLES),
+  poster: getSingleRandomItemFromArray(POSTERS),
+  cover: COVER,
+  genre: getSingleRandomItemFromArray(GENRES),
+  director: getSingleRandomItemFromArray(DIRECTORS),
+  cast: getMultipleRandomItemsFromArray(ACTORS),
   year: getRandomInt(1980, 2020),
+  description: DESCRIPTION,
+  rating: getRandomInt(0, 10).toFixed(1),
+  reviewsCount: getRandomInt(0, 100),
 });
 
 const generateMovies = (count) => {
@@ -89,4 +138,4 @@ const generateMovies = (count) => {
 
 export const movies = generateMovies(MOVIES_COUNT);
 
-export const currentMovie = getRandomItemFromArray(movies);
+export const currentMovie = getSingleRandomItemFromArray(movies);
