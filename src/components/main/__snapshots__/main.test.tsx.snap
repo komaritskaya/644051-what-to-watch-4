@@ -263,6 +263,7 @@ Array [
         >
           <div
             className="small-movie-card__image"
+            onClick={[Function]}
           >
             <img
               alt="Some Film"
@@ -276,7 +277,7 @@ Array [
           >
             <a
               className="small-movie-card__link"
-              href="movie-page.html"
+              href="#"
               onClick={[Function]}
             >
               Some Film
@@ -289,6 +290,7 @@ Array [
         >
           <div
             className="small-movie-card__image"
+            onClick={[Function]}
           >
             <img
               alt="Another Film"
@@ -302,7 +304,7 @@ Array [
           >
             <a
               className="small-movie-card__link"
-              href="movie-page.html"
+              href="#"
               onClick={[Function]}
             >
               Another Film

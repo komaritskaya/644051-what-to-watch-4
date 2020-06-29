@@ -15,13 +15,19 @@ it(`Should movie card be hovered`, () => {
     poster: `some-poster.jpg`,
     genre: `comedy`,
     year: 2000,
+    director: `Some Director`,
+    cast: [`Actor One`, `Actor Two`],
+    cover: `some-bg-poster.jpg`,
+    description: `Damn good film`,
+    rating: 10.0,
+    reviewsCount: 100,
   };
 
   const movieCard = shallow(
       <MovieCard
         movie={movie}
         onCardHover={onCardHover}
-        onTitleClick={() => {}}
+        onCardClick={() => {}}
       />
   );
 

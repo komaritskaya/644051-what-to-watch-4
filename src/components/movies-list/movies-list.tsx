@@ -4,7 +4,7 @@ import {Movie} from '../../types';
 
 interface MoviesListProps {
   movies: Movie[];
-  onTitleClick: () => void;
+  onCardClick: (id: string) => void;
 }
 
 class MoviesList extends React.PureComponent<MoviesListProps> {
@@ -22,7 +22,7 @@ class MoviesList extends React.PureComponent<MoviesListProps> {
   }
 
   render() {
-    const {movies, onTitleClick} = this.props;
+    const {movies, onCardClick} = this.props;
     return (
       <div className="catalog__movies-list">
         {
@@ -30,7 +30,7 @@ class MoviesList extends React.PureComponent<MoviesListProps> {
             <MovieCard
               key={movie.id}
               movie={movie}
-              onTitleClick={onTitleClick}
+              onCardClick={onCardClick}
               onCardHover={this._onCardHover}
             />
           ))

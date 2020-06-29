@@ -7,8 +7,8 @@ Enzyme.configure({
   adapter: new Adapter(),
 });
 
-it(`Should title link be pressed`, () => {
-  const onTitleClick = jest.fn();
+it(`Should img or title link be pressed`, () => {
+  const onCardClick = jest.fn();
   const movies = [
     {
       id: `123`,
@@ -16,6 +16,12 @@ it(`Should title link be pressed`, () => {
       poster: `some-poster.jpg`,
       genre: `comedy`,
       year: 2000,
+      director: `Some Director`,
+      cast: [`Actor One`, `Actor Two`],
+      cover: `some-bg-poster.jpg`,
+      description: `Damn good film`,
+      rating: 10.0,
+      reviewsCount: 100,
     },
     {
       id: `456`,
@@ -23,6 +29,12 @@ it(`Should title link be pressed`, () => {
       poster: `another-poster.jpg`,
       genre: `drama`,
       year: 2000,
+      director: `Another Director`,
+      cast: [`Actor One`, `Actor Two`],
+      cover: `another-bg-poster.jpg`,
+      description: `Awful film`,
+      rating: 2.0,
+      reviewsCount: 50,
     },
   ];
 
@@ -30,13 +42,15 @@ it(`Should title link be pressed`, () => {
       <Main
         movies={movies}
         currentMovie={movies[0]}
-        onTitleClick={onTitleClick}
+        onCardClick={onCardClick}
       />
   );
 
   const titleLink = main.find(`a.small-movie-card__link`).first();
+  const imageLink = main.find(`div.small-movie-card__image`).first();
 
   titleLink.simulate(`click`);
+  imageLink.simulate(`click`);
 
-  expect(onTitleClick.mock.calls.length).toBe(1);
+  expect(onCardClick.mock.calls.length).toBe(2);
 });

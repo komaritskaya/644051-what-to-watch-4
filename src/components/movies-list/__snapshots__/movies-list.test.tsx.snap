@@ -10,6 +10,7 @@ exports[`Should Movies List component render correctly 1`] = `
   >
     <div
       className="small-movie-card__image"
+      onClick={[Function]}
     >
       <img
         alt="Some Film"
@@ -23,7 +24,7 @@ exports[`Should Movies List component render correctly 1`] = `
     >
       <a
         className="small-movie-card__link"
-        href="movie-page.html"
+        href="#"
         onClick={[Function]}
       >
         Some Film
@@ -36,6 +37,7 @@ exports[`Should Movies List component render correctly 1`] = `
   >
     <div
       className="small-movie-card__image"
+      onClick={[Function]}
     >
       <img
         alt="Another Film"
@@ -49,7 +51,7 @@ exports[`Should Movies List component render correctly 1`] = `
     >
       <a
         className="small-movie-card__link"
-        href="movie-page.html"
+        href="#"
         onClick={[Function]}
       >
         Another Film
