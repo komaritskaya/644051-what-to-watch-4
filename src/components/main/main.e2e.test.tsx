@@ -2,6 +2,7 @@ import React from 'react';
 import Enzyme, {mount} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import Main from './main';
+import {movies} from '../../mocks/test-data';
 
 Enzyme.configure({
   adapter: new Adapter(),
@@ -9,36 +10,6 @@ Enzyme.configure({
 
 it(`Should img or title link be pressed`, () => {
   const onCardClick = jest.fn();
-  const movies = [
-    {
-      id: `123`,
-      title: `Some Film`,
-      poster: `some-poster.jpg`,
-      genre: `comedy`,
-      year: 2000,
-      director: `Some Director`,
-      cast: [`Actor One`, `Actor Two`],
-      cover: `some-bg-poster.jpg`,
-      description: `Damn good film`,
-      rating: 10.0,
-      reviewsCount: 100,
-      trailer: `some-trailer.mp4`,
-    },
-    {
-      id: `456`,
-      title: `Another Film`,
-      poster: `another-poster.jpg`,
-      genre: `drama`,
-      year: 2000,
-      director: `Another Director`,
-      cast: [`Actor One`, `Actor Two`],
-      cover: `another-bg-poster.jpg`,
-      description: `Awful film`,
-      rating: 2.0,
-      reviewsCount: 50,
-      trailer: `some-trailer.mp4`,
-    },
-  ];
 
   const main = mount(
       <Main

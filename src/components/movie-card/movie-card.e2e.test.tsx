@@ -2,6 +2,7 @@ import React from 'react';
 import Enzyme, {mount} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import MovieCard from './movie-card';
+import {movies} from '../../mocks/test-data';
 
 Enzyme.configure({
   adapter: new Adapter(),
@@ -9,20 +10,7 @@ Enzyme.configure({
 
 it(`Should movie card be hovered`, () => {
   const onCardHover = jest.fn((...args) => [...args]);
-  const movie = {
-    id: `123`,
-    title: `Some Film`,
-    poster: `some-poster.jpg`,
-    genre: `comedy`,
-    year: 2000,
-    director: `Some Director`,
-    cast: [`Actor One`, `Actor Two`],
-    cover: `some-bg-poster.jpg`,
-    description: `Damn good film`,
-    rating: 10.0,
-    reviewsCount: 100,
-    trailer: `some-trailer.mp4`,
-  };
+  const movie = movies[0];
 
   const movieCard = mount(
       <MovieCard
