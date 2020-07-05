@@ -2,6 +2,7 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import App from './app';
 
+jest.mock(`../video-player/video-player`);
 it(`Render App`, () => {
   const movies = [
     {
@@ -12,6 +13,7 @@ it(`Render App`, () => {
       year: 2000,
       director: `Some Director`,
       cast: [`Actor One`, `Actor Two`],
+      trailer: `some-trailer.mp4`,
       cover: `some-bg-poster.jpg`,
       description: `Damn good film`,
       rating: 10.0,
@@ -26,6 +28,7 @@ it(`Render App`, () => {
       director: `Another Director`,
       cast: [`Actor One`, `Actor Two`],
       cover: `another-bg-poster.jpg`,
+      trailer: `another-trailer.mp4`,
       description: `Awful film`,
       rating: 2.0,
       reviewsCount: 50,

@@ -2,6 +2,7 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import MovieCard from './movie-card';
 
+jest.mock(`../video-player/video-player`);
 it(`Should Movie Card component render correctly`, () => {
   const movie = {
     id: `123`,
@@ -12,6 +13,7 @@ it(`Should Movie Card component render correctly`, () => {
     director: `Some Director`,
     cast: [`Actor One`, `Actor Two`],
     cover: `some-bg-poster.jpg`,
+    trailer: `some-trailer.mp4`,
     description: `Damn good film`,
     rating: 10.0,
     reviewsCount: 100,
@@ -22,6 +24,8 @@ it(`Should Movie Card component render correctly`, () => {
       movie={movie}
       onCardClick={() => {}}
       onCardHover={() => {}}
+      onCardLeave={() => {}}
+      isActive={false}
     />)
     .toJSON();
 

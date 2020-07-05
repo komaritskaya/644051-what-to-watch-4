@@ -2,6 +2,7 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import MoviesList from './movies-list';
 
+jest.mock(`../video-player/video-player`);
 it(`Should Movies List component render correctly`, () => {
   const movies = [
     {
@@ -16,6 +17,7 @@ it(`Should Movies List component render correctly`, () => {
       description: `Damn good film`,
       rating: 10.0,
       reviewsCount: 100,
+      trailer: `some-trailer.mp4`,
     },
     {
       id: `456`,
@@ -29,6 +31,7 @@ it(`Should Movies List component render correctly`, () => {
       description: `Awful film`,
       rating: 2.0,
       reviewsCount: 50,
+      trailer: `another-trailer.mp4`,
     },
   ];
 

@@ -4,18 +4,12 @@ exports[`Should Movie Card component render correctly 1`] = `
 <article
   className="small-movie-card catalog__movies-card"
   onMouseEnter={[Function]}
+  onMouseOut={[Function]}
 >
   <div
     className="small-movie-card__image"
     onClick={[Function]}
-  >
-    <img
-      alt="Some Film"
-      height="175"
-      src="img/some-poster.jpg"
-      width="280"
-    />
-  </div>
+  />
   <h3
     className="small-movie-card__title"
   >

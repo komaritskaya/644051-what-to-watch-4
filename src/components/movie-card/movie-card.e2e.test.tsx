@@ -1,5 +1,5 @@
 import React from 'react';
-import Enzyme, {shallow} from 'enzyme';
+import Enzyme, {mount} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import MovieCard from './movie-card';
 
@@ -21,13 +21,16 @@ it(`Should movie card be hovered`, () => {
     description: `Damn good film`,
     rating: 10.0,
     reviewsCount: 100,
+    trailer: `some-trailer.mp4`,
   };
 
-  const movieCard = shallow(
+  const movieCard = mount(
       <MovieCard
         movie={movie}
         onCardHover={onCardHover}
+        onCardLeave={()=> {}}
         onCardClick={() => {}}
+        isActive={false}
       />
   );
 

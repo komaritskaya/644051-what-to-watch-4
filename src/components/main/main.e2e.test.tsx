@@ -22,6 +22,7 @@ it(`Should img or title link be pressed`, () => {
       description: `Damn good film`,
       rating: 10.0,
       reviewsCount: 100,
+      trailer: `some-trailer.mp4`,
     },
     {
       id: `456`,
@@ -35,6 +36,7 @@ it(`Should img or title link be pressed`, () => {
       description: `Awful film`,
       rating: 2.0,
       reviewsCount: 50,
+      trailer: `some-trailer.mp4`,
     },
   ];
 
