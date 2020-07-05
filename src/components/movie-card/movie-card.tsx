@@ -1,6 +1,7 @@
 import React from 'react';
 import VideoPlayer from '../video-player/video-player';
 import {Movie} from '../../types';
+import {VIDEO_PLAYER_TIMEOUT} from '../../const';
 
 interface MovieCardProps {
   movie: Movie;
@@ -15,7 +16,7 @@ interface MovieCardState {
 }
 
 class MovieCard extends React.PureComponent<MovieCardProps, MovieCardState> {
-  constructor(props) {
+  constructor(props: MovieCardProps) {
     super(props);
 
     this.state = {
@@ -24,6 +25,8 @@ class MovieCard extends React.PureComponent<MovieCardProps, MovieCardState> {
 
     this._timeout = null;
   }
+
+  private _timeout: NodeJS.Timeout;
 
   render() {
     const {movie, onCardClick, onCardHover, onCardLeave} = this.props;
@@ -67,7 +70,7 @@ class MovieCard extends React.PureComponent<MovieCardProps, MovieCardState> {
         this.setState({
           isPlaying: true,
         });
-      }, 1000);
+      }, VIDEO_PLAYER_TIMEOUT);
     } else {
       clearTimeout(this._timeout);
       this.setState({

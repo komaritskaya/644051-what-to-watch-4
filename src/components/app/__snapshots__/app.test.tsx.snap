@@ -265,15 +265,7 @@ Array [
           <div
             className="small-movie-card__image"
             onClick={[Function]}
-          >
-            <video
-              className="player__video"
-              height="175"
-              muted={true}
-              poster="img/some-poster.jpg"
-              width="280"
-            />
-          </div>
+          />
           <h3
             className="small-movie-card__title"
           >
@@ -294,15 +286,7 @@ Array [
           <div
             className="small-movie-card__image"
             onClick={[Function]}
-          >
-            <video
-              className="player__video"
-              height="175"
-              muted={true}
-              poster="img/another-poster.jpg"
-              width="280"
-            />
-          </div>
+          />
           <h3
             className="small-movie-card__title"
           >

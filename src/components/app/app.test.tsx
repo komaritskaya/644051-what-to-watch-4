@@ -2,6 +2,7 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import App from './app';
 
+jest.mock(`../video-player/video-player`);
 it(`Render App`, () => {
   const movies = [
     {

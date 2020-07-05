@@ -1,0 +1,1 @@
+export const VIDEO_PLAYER_TIMEOUT = 1000;

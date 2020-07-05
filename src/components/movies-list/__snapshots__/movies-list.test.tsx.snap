@@ -12,15 +12,7 @@ exports[`Should Movies List component render correctly 1`] = `
     <div
       className="small-movie-card__image"
       onClick={[Function]}
-    >
-      <video
-        className="player__video"
-        height="175"
-        muted={true}
-        poster="img/some-poster.jpg"
-        width="280"
-      />
-    </div>
+    />
     <h3
       className="small-movie-card__title"
     >
@@ -41,15 +33,7 @@ exports[`Should Movies List component render correctly 1`] = `
     <div
       className="small-movie-card__image"
       onClick={[Function]}
-    >
-      <video
-        className="player__video"
-        height="175"
-        muted={true}
-        poster="img/another-poster.jpg"
-        width="280"
-      />
-    </div>
+    />
     <h3
       className="small-movie-card__title"
     >

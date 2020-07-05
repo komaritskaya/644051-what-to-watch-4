@@ -2,6 +2,7 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import MovieCard from './movie-card';
 
+jest.mock(`../video-player/video-player`);
 it(`Should Movie Card component render correctly`, () => {
   const movie = {
     id: `123`,

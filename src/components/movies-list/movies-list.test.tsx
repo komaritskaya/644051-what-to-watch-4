@@ -2,6 +2,7 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import MoviesList from './movies-list';
 
+jest.mock(`../video-player/video-player`);
 it(`Should Movies List component render correctly`, () => {
   const movies = [
     {

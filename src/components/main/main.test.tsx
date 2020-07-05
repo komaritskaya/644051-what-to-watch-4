@@ -2,6 +2,7 @@ import React from 'react';
 import renderer from 'react-test-renderer';
 import Main from './main';
 
+jest.mock(`../video-player/video-player`);
 it(`Should Main component render correctly`, () => {
   const movies = [
     {

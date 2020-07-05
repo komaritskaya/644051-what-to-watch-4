@@ -11,7 +11,7 @@ interface VideoPlayerState {
 }
 
 class VideoPlayer extends PureComponent<VideoPlayerProps, VideoPlayerState> {
-  constructor(props) {
+  constructor(props: VideoPlayerProps) {
     super(props);
 
     this.state = {

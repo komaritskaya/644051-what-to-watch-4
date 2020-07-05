@@ -12,7 +12,7 @@ interface MoviesListState {
 }
 
 class MoviesList extends React.PureComponent<MoviesListProps, MoviesListState> {
-  constructor(props) {
+  constructor(props: MoviesListProps) {
     super(props);
     this.state = {activeMovieId: null};
 
@@ -20,7 +20,7 @@ class MoviesList extends React.PureComponent<MoviesListProps, MoviesListState> {
     this._onCardLeave = this._onCardLeave.bind(this);
   }
 
-  _onCardHover(id) {
+  _onCardHover(id: string) {
     this.setState({
       activeMovieId: id,
     });
