@@ -260,15 +260,17 @@ Array [
         <article
           className="small-movie-card catalog__movies-card"
           onMouseEnter={[Function]}
+          onMouseOut={[Function]}
         >
           <div
             className="small-movie-card__image"
             onClick={[Function]}
           >
-            <img
-              alt="Some Film"
+            <video
+              className="player__video"
               height="175"
-              src="img/some-poster.jpg"
+              muted={true}
+              poster="img/some-poster.jpg"
               width="280"
             />
           </div>
@@ -287,15 +289,17 @@ Array [
         <article
           className="small-movie-card catalog__movies-card"
           onMouseEnter={[Function]}
+          onMouseOut={[Function]}
         >
           <div
             className="small-movie-card__image"
             onClick={[Function]}
           >
-            <img
-              alt="Another Film"
+            <video
+              className="player__video"
               height="175"
-              src="img/another-poster.jpg"
+              muted={true}
+              poster="img/another-poster.jpg"
               width="280"
             />
           </div>

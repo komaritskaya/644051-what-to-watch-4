@@ -15,6 +15,7 @@ it(`Render Movie Page`, () => {
     description: `Damn good film`,
     rating: 10.0,
     reviewsCount: 100,
+    trailer: `some-trailer.mp4`,
   };
 
   const tree = renderer

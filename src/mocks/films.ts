@@ -89,6 +89,8 @@ const COVER = `bg-the-grand-budapest-hotel.jpg`;
 const DESCRIPTION = `In the 1930s, the Grand Budapest Hotel is a popular European ski resort, presided over by concierge Gustave H. (Ralph Fiennes). Zero, a junior lobby boy, becomes Gustave's friend and protege.\nGustave prides himself on providing first-class service to the hotel's guests, including satisfying the sexual needs of the many elderly women who stay there. When one of Gustave's lovers dies mysteriously, Gustave finds himself the recipient of a priceless painting and the chief suspect in her murder.
 `;
 
+const TRAILER = `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`;
+
 const getRandomInt = (min, max) => {
   min = Math.ceil(min);
   max = Math.floor(max);
@@ -128,6 +130,7 @@ const generateMovie = () => ({
   description: DESCRIPTION,
   rating: getRandomInt(0, 10).toFixed(1),
   reviewsCount: getRandomInt(0, 100),
+  trailer: TRAILER,
 });
 
 const generateMovies = (count) => {

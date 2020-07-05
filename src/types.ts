@@ -10,4 +10,5 @@ export interface Movie {
   description: string;
   rating: number;
   reviewsCount: number;
+  trailer: string;
 }

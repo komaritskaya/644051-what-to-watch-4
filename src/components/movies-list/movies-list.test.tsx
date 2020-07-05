@@ -16,6 +16,7 @@ it(`Should Movies List component render correctly`, () => {
       description: `Damn good film`,
       rating: 10.0,
       reviewsCount: 100,
+      trailer: `some-trailer.mp4`,
     },
     {
       id: `456`,
@@ -29,6 +30,7 @@ it(`Should Movies List component render correctly`, () => {
       description: `Awful film`,
       rating: 2.0,
       reviewsCount: 50,
+      trailer: `another-trailer.mp4`,
     },
   ];
 
