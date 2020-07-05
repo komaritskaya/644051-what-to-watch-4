@@ -18,13 +18,21 @@ const movie = {
 };
 
 it(`VideoPlayer is rendered correctly`, () => {
+  let isPlaying = false;
   const tree = renderer.create(<VideoPlayer
-    isPlaying={false}
+    isPlaying={isPlaying}
     poster={movie.poster}
     src={movie.trailer}
   />, {
-    createNodeMock: () => {
-      return {};
+    createNodeMock: (element) => {
+      if (element.type === `video`) {
+        return {
+          play: () => {
+            isPlaying = true;
+          }
+        };
+      }
+      return null;
     }
   }).toJSON();
 
