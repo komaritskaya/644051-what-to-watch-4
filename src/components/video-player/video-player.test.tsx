@@ -1,21 +1,9 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
 import VideoPlayer from './video-player';
+import {movies} from '../../mocks/test-data';
 
-const movie = {
-  id: `123`,
-  title: `Some Film`,
-  poster: `some-poster.jpg`,
-  genre: `comedy`,
-  year: 2000,
-  director: `Some Director`,
-  cast: [`Actor One`, `Actor Two`],
-  cover: `some-bg-poster.jpg`,
-  trailer: `some-trailer.mp4`,
-  description: `Damn good film`,
-  rating: 10.0,
-  reviewsCount: 100,
-};
+const movie = movies[0];
 
 it(`VideoPlayer is rendered correctly`, () => {
   const tree = renderer.create(<VideoPlayer
