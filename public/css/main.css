@@ -834,7 +834,9 @@ main {
       flex-wrap: wrap; }
 
 .movie-nav__item {
-  margin-right: 35px; }
+  margin-right: 35px;
+  text-decoration: none;
+}
   .movie-nav__item--active .movie-nav__link {
     font-weight: bold; }
     .movie-nav__item--active .movie-nav__link::after {

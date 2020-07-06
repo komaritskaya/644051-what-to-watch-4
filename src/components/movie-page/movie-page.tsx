@@ -1,25 +1,27 @@
 import React from 'react';
-import nanoid from 'nanoid';
+import {HashRouter as Router, Route} from 'react-router-dom';
+import TabsList from '../tabs-list/tabs-list';
+import MoviePageOverview from '../movie-page-overview/movie-page-overview';
+import MoviePageDetails from '../movie-page-details/movie-page-details';
+import MoviePageReviews from '../movie-page-reviews/movie-page-reviews';
 import {Movie} from '../../types';
 
 interface MoviePageProps {
   movie: Movie;
 }
 
-const getMovieRatingDescription = (movie) => {
-  const {rating} = movie;
-  if (rating < 3) {
-    return `Bad`;
-  } else if (rating < 5) {
-    return `Normal`;
-  } else if (rating < 8) {
-    return `Good`;
-  } else if (rating < 10) {
-    return `Very good`;
-  } else if (rating === 10) {
-    return `Awesome`;
-  } else {
-    return `No rating`;
+const Tab = {
+  OVERVIEW: {
+    name: `Overview`,
+    link: `/`,
+  },
+  DETAILS: {
+    name: `Details`,
+    link: `/details`
+  },
+  REVIEWS: {
+    name: `Reviews`,
+    link: `/reviews`,
   }
 };
 
@@ -30,16 +32,7 @@ const MoviePage: React.FC<MoviePageProps> = ({movie}: MoviePageProps) => {
     year,
     poster,
     cover,
-    director,
-    cast,
-    description,
-    rating,
-    reviewsCount,
   } = movie;
-  const castString = cast.join(`, `);
-  const descriptionMarkup = description.split(`\n`).map((paragraph) => <p key={nanoid()}>{paragraph}</p>);
-  const ratingString = rating.toString().replace(`.`, `,`);
-  const ratingDescription = getMovieRatingDescription(movie);
   return (
     <React.Fragment>
       <section className="movie-card movie-card--full">
@@ -100,35 +93,14 @@ const MoviePage: React.FC<MoviePageProps> = ({movie}: MoviePageProps) => {
             </div>
 
             <div className="movie-card__desc">
-              <nav className="movie-nav movie-card__nav">
-                <ul className="movie-nav__list">
-                  <li className="movie-nav__item movie-nav__item--active">
-                    <a href="#" className="movie-nav__link">Overview</a>
-                  </li>
-                  <li className="movie-nav__item">
-                    <a href="#" className="movie-nav__link">Details</a>
-                  </li>
-                  <li className="movie-nav__item">
-                    <a href="#" className="movie-nav__link">Reviews</a>
-                  </li>
-                </ul>
-              </nav>
+              <Router>
+                <TabsList tabs={Object.values(Tab)} />
 
-              <div className="movie-rating">
-                <div className="movie-rating__score">{ratingString}</div>
-                <p className="movie-rating__meta">
-                  <span className="movie-rating__level">{ratingDescription}</span>
-                  <span className="movie-rating__count">{reviewsCount} ratings</span>
-                </p>
-              </div>
+                <Route exact path={Tab.OVERVIEW.link} component={() => <MoviePageOverview movie={movie} />} />
+                <Route path={Tab.DETAILS.link} component={() => <MoviePageDetails />} />
+                <Route path={Tab.REVIEWS.link} component={() => <MoviePageReviews />} />
 
-              <div className="movie-card__text">
-                {descriptionMarkup}
-
-                <p className="movie-card__director"><strong>Director: {director}</strong></p>
-
-                <p className="movie-card__starring"><strong>Starring: {castString} and other</strong></p>
-              </div>
+              </Router>
             </div>
           </div>
         </div>
