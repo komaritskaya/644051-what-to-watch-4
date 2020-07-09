@@ -6,8 +6,7 @@ interface MoviePageOverviewProps {
   movie: Movie;
 }
 
-const getMovieRatingDescription = (movie) => {
-  const {rating} = movie;
+const getMovieRatingDescription = (rating) => {
   if (rating < 3) {
     return `Bad`;
   } else if (rating < 5) {
@@ -28,20 +27,21 @@ const MoviePageOverview: React.FC<MoviePageOverviewProps> = ({movie}) => {
     director,
     cast,
     description,
-    rating,
-    reviewsCount,
+    comments,
   } = movie;
   const castString = cast.join(`, `);
   const descriptionMarkup = description.split(`\n`).map((paragraph) => <p key={nanoid()}>{paragraph}</p>);
+
+  const rating = ((comments.map((comment) => Number(comment.rate)).reduce((a, b) => a + b)) / comments.length).toFixed(1);
   const ratingString = rating.toString().replace(`.`, `,`);
-  const ratingDescription = getMovieRatingDescription(movie);
+  const ratingDescription = getMovieRatingDescription(rating);
   return (
     <React.Fragment>
       <div className="movie-rating">
         <div className="movie-rating__score">{ratingString}</div>
         <p className="movie-rating__meta">
           <span className="movie-rating__level">{ratingDescription}</span>
-          <span className="movie-rating__count">{reviewsCount} ratings</span>
+          <span className="movie-rating__count">{comments.length} ratings</span>
         </p>
       </div>
 

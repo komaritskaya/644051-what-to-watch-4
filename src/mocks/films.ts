@@ -1,4 +1,11 @@
 import nanoid from 'nanoid';
+import moment from 'moment';
+import {
+  getRandomInt,
+  getSingleRandomItemFromArray,
+  getMultipleRandomItemsFromArray
+} from '../utils';
+import {generateComments} from './comments';
 
 const MOVIES_COUNT = 8;
 
@@ -91,31 +98,9 @@ const DESCRIPTION = `In the 1930s, the Grand Budapest Hotel is a popular Europea
 
 const TRAILER = `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`;
 
-const getRandomInt = (min, max) => {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-};
-
-const getRandomBool = () => {
-  return Math.random() < 0.5;
-};
-
-const getSingleRandomItemFromArray = (arr) => {
-  return arr[getRandomInt(0, arr.length - 1)];
-};
-
-const getMultipleRandomItemsFromArray = (arr) => {
-  const newArr = [];
-  for (let i = 0; i < arr.length; i++) {
-    if (getRandomBool()) {
-      newArr.push(arr[i]);
-    }
-  }
-  if (newArr.length === 0) {
-    newArr.push(getSingleRandomItemFromArray(arr));
-  }
-  return newArr;
+const generateDurationInMinutes = (min, max) => {
+  const minutes = moment.duration(getRandomInt(min, max), `minutes`);
+  return minutes;
 };
 
 const generateMovie = () => ({
@@ -128,9 +113,10 @@ const generateMovie = () => ({
   cast: getMultipleRandomItemsFromArray(ACTORS),
   year: getRandomInt(1980, 2020),
   description: DESCRIPTION,
-  rating: getRandomInt(0, 10).toFixed(1),
+  duration: generateDurationInMinutes(0, 180),
   reviewsCount: getRandomInt(0, 100),
   trailer: TRAILER,
+  comments: generateComments(getRandomInt(5, 10)),
 });
 
 const generateMovies = (count) => {

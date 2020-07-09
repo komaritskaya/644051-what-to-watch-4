@@ -9,6 +9,8 @@ it(`Render Movie Page`, () => {
   const tree = renderer
     .create(<MoviePage
       movie={movie}
+      allMovies={movies}
+      onCardClick={() => {}}
     />)
     .toJSON();
 

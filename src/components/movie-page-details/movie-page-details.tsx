@@ -1,28 +1,36 @@
 import React from 'react';
+import moment from 'moment';
+import {Movie} from '../../types';
 
-const MoviePageDetails: React.FC = () => {
+interface MoviePageDetailsProps {
+  movie: Movie;
+}
+
+const MoviePageDetails: React.FC<MoviePageDetailsProps> = ({movie}) => {
+  const {
+    director,
+    cast,
+    genre,
+    year,
+    duration,
+  } = movie;
+  const castString = cast.join(`\n`);
+
+  const hoursString = moment(duration).hours() ? `${moment(duration).hours()}h ` : ``;
+  const minutesString = moment(duration).minutes() ? `${moment(duration).minutes()}m` : ``;
+  const durationString = `${hoursString}${minutesString}`;
+
   return (
     <div className="movie-card__text movie-card__row">
       <div className="movie-card__text-col">
         <p className="movie-card__details-item">
           <strong className="movie-card__details-name">Director</strong>
-          <span className="movie-card__details-value">Wes Andreson</span>
+          <span className="movie-card__details-value">{director}</span>
         </p>
         <p className="movie-card__details-item">
           <strong className="movie-card__details-name">Starring</strong>
           <span className="movie-card__details-value">
-            Bill Murray, <br />
-            Edward Norton, <br />
-            Jude Law, <br />
-            Willem Dafoe, <br />
-            Saoirse Ronan, <br />
-            Tony Revoloru, <br />
-            Tilda Swinton, <br />
-            Tom Wilkinson, <br />
-            Owen Wilkinson, <br />
-            Adrien Brody, <br />
-            Ralph Fiennes, <br />
-            Jeff Goldblum
+            {castString}
           </span>
         </p>
       </div>
@@ -30,15 +38,15 @@ const MoviePageDetails: React.FC = () => {
       <div className="movie-card__text-col">
         <p className="movie-card__details-item">
           <strong className="movie-card__details-name">Run Time</strong>
-          <span className="movie-card__details-value">1h 39m</span>
+          <span className="movie-card__details-value">{durationString}</span>
         </p>
         <p className="movie-card__details-item">
           <strong className="movie-card__details-name">Genre</strong>
-          <span className="movie-card__details-value">Comedy</span>
+          <span className="movie-card__details-value">{genre}</span>
         </p>
         <p className="movie-card__details-item">
           <strong className="movie-card__details-name">Released</strong>
-          <span className="movie-card__details-value">2014</span>
+          <span className="movie-card__details-value">{year}</span>
         </p>
       </div>
     </div>

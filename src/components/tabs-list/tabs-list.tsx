@@ -1,7 +1,6 @@
 import React from 'react';
-import {Link, NavLink, useRouteMatch} from 'react-router-dom';
+import {Link, useRouteMatch} from 'react-router-dom';
 import nanoid from 'nanoid';
-// import Tab from '../tab/tab';
 
 interface TabsListProps {
   tabs: {
@@ -21,9 +20,9 @@ const TabsList: React.FC<TabsListProps> = ({tabs}) => {
           });
           return (
             <li key={nanoid()} className={match ? `movie-nav__item movie-nav__item--active` : `movie-nav__item`}>
-              <NavLink to={tab.link} className="movie-nav__link">
+              <Link to={tab.link} className="movie-nav__link">
                 {tab.name}
-              </NavLink>
+              </Link>
             </li>
           );
         })}
