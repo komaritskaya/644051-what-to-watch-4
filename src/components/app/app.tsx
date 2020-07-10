@@ -30,7 +30,13 @@ class App extends PureComponent<AppProps, AppState> {
 
   _renderApp(movies, currentMovie, detailedMovieId) {
     if (detailedMovieId) {
-      return <MoviePage movie={this.props.movies.find((movie) => movie.id === detailedMovieId)}/>;
+      return (
+        <MoviePage
+          movie={this.props.movies.find((movie) => movie.id === detailedMovieId)}
+          allMovies={movies}
+          onCardClick={this._handleCardClick}
+        />
+      );
     }
 
     return (
@@ -52,7 +58,11 @@ class App extends PureComponent<AppProps, AppState> {
             {this._renderApp(movies, currentMovie, detailedMovieId)}
           </Route>
           <Route exact path="/dev-movie-page">
-            <MoviePage movie={movies.find((movie) => movie.id === detailedMovieId) || movies[0]} />
+            <MoviePage
+              movie={movies.find((movie) => movie.id === detailedMovieId) || movies[0]}
+              allMovies={movies}
+              onCardClick={this._handleCardClick}
+            />
           </Route>
         </Switch>
       </BrowserRouter>

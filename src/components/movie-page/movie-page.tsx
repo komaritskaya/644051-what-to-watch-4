@@ -1,45 +1,41 @@
 import React from 'react';
-import nanoid from 'nanoid';
+import {HashRouter as Router, Route, Switch} from 'react-router-dom';
+import TabsList from '../tabs-list/tabs-list';
+import MoviePageOverview from '../movie-page-overview/movie-page-overview';
+import MoviePageDetails from '../movie-page-details/movie-page-details';
+import MoviePageReviews from '../movie-page-reviews/movie-page-reviews';
+import MoreLikeThis from '../more-like-this/more-like-this';
 import {Movie} from '../../types';
 
 interface MoviePageProps {
   movie: Movie;
+  allMovies: Movie[];
+  onCardClick: (id: string) => void;
 }
 
-const getMovieRatingDescription = (movie) => {
-  const {rating} = movie;
-  if (rating < 3) {
-    return `Bad`;
-  } else if (rating < 5) {
-    return `Normal`;
-  } else if (rating < 8) {
-    return `Good`;
-  } else if (rating < 10) {
-    return `Very good`;
-  } else if (rating === 10) {
-    return `Awesome`;
-  } else {
-    return `No rating`;
+const Tab = {
+  OVERVIEW: {
+    name: `Overview`,
+    link: `/`,
+  },
+  DETAILS: {
+    name: `Details`,
+    link: `/details`
+  },
+  REVIEWS: {
+    name: `Reviews`,
+    link: `/reviews`,
   }
 };
 
-const MoviePage: React.FC<MoviePageProps> = ({movie}: MoviePageProps) => {
+const MoviePage: React.FC<MoviePageProps> = ({movie, allMovies, onCardClick}: MoviePageProps) => {
   const {
     title,
     genre,
     year,
     poster,
     cover,
-    director,
-    cast,
-    description,
-    rating,
-    reviewsCount,
   } = movie;
-  const castString = cast.join(`, `);
-  const descriptionMarkup = description.split(`\n`).map((paragraph) => <p key={nanoid()}>{paragraph}</p>);
-  const ratingString = rating.toString().replace(`.`, `,`);
-  const ratingDescription = getMovieRatingDescription(movie);
   return (
     <React.Fragment>
       <section className="movie-card movie-card--full">
@@ -100,82 +96,28 @@ const MoviePage: React.FC<MoviePageProps> = ({movie}: MoviePageProps) => {
             </div>
 
             <div className="movie-card__desc">
-              <nav className="movie-nav movie-card__nav">
-                <ul className="movie-nav__list">
-                  <li className="movie-nav__item movie-nav__item--active">
-                    <a href="#" className="movie-nav__link">Overview</a>
-                  </li>
-                  <li className="movie-nav__item">
-                    <a href="#" className="movie-nav__link">Details</a>
-                  </li>
-                  <li className="movie-nav__item">
-                    <a href="#" className="movie-nav__link">Reviews</a>
-                  </li>
-                </ul>
-              </nav>
+              <Router>
+                <TabsList tabs={Object.values(Tab)} />
 
-              <div className="movie-rating">
-                <div className="movie-rating__score">{ratingString}</div>
-                <p className="movie-rating__meta">
-                  <span className="movie-rating__level">{ratingDescription}</span>
-                  <span className="movie-rating__count">{reviewsCount} ratings</span>
-                </p>
-              </div>
+                <Switch>
+                  <Route exact path={Tab.OVERVIEW.link} component={() => <MoviePageOverview movie={movie} />} />
+                  <Route path={Tab.DETAILS.link} component={() => <MoviePageDetails movie={movie} />} />
+                  <Route path={Tab.REVIEWS.link} component={() => <MoviePageReviews movie={movie} />} />
+                </Switch>
 
-              <div className="movie-card__text">
-                {descriptionMarkup}
-
-                <p className="movie-card__director"><strong>Director: {director}</strong></p>
-
-                <p className="movie-card__starring"><strong>Starring: {castString} and other</strong></p>
-              </div>
+              </Router>
             </div>
           </div>
         </div>
       </section>
 
       <div className="page-content">
-        <section className="catalog catalog--like-this">
-          <h2 className="catalog__title">More like this</h2>
 
-          <div className="catalog__movies-list">
-            <article className="small-movie-card catalog__movies-card">
-              <div className="small-movie-card__image">
-                <img src="img/fantastic-beasts-the-crimes-of-grindelwald.jpg" alt="Fantastic Beasts: The Crimes of Grindelwald" width="280" height="175" />
-              </div>
-              <h3 className="small-movie-card__title">
-                <a className="small-movie-card__link" href="movie-page.html">Fantastic Beasts: The Crimes of Grindelwald</a>
-              </h3>
-            </article>
-
-            <article className="small-movie-card catalog__movies-card">
-              <div className="small-movie-card__image">
-                <img src="img/bohemian-rhapsody.jpg" alt="Bohemian Rhapsody" width="280" height="175" />
-              </div>
-              <h3 className="small-movie-card__title">
-                <a className="small-movie-card__link" href="movie-page.html">Bohemian Rhapsody</a>
-              </h3>
-            </article>
-
-            <article className="small-movie-card catalog__movies-card">
-              <div className="small-movie-card__image">
-                <img src="img/macbeth.jpg" alt="Macbeth" width="280" height="175" />
-              </div>
-              <h3 className="small-movie-card__title">
-                <a className="small-movie-card__link" href="movie-page.html">Macbeth</a>
-              </h3>
-            </article>
-
-            <article className="small-movie-card catalog__movies-card">
-              <div className="small-movie-card__image">
-                <img src="img/aviator.jpg" alt="Aviator" width="280" height="175" />
-              </div>
-              <h3 className="small-movie-card__title">
-                <a className="small-movie-card__link" href="movie-page.html">Aviator</a>
-              </h3>
-            </article>
-          </div>
-        </section>
+        <MoreLikeThis
+          movie={movie}
+          allMovies={allMovies}
+          onCardClick={onCardClick}
+        />
 
         <footer className="page-footer">
           <div className="logo">

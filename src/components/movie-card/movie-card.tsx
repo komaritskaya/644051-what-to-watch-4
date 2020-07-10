@@ -28,6 +28,10 @@ class MovieCard extends React.PureComponent<MovieCardProps, MovieCardState> {
 
   private _timeout: NodeJS.Timeout;
 
+  componentWillUnmount() {
+    clearTimeout(this._timeout);
+  }
+
   render() {
     const {movie, onCardClick, onCardHover, onCardLeave} = this.props;
     const {title, poster, trailer} = movie;

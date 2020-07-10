@@ -9,9 +9,25 @@ export const movies = [
     cast: [`Actor One`, `Actor Two`],
     cover: `some-bg-poster.jpg`,
     description: `Damn good film`,
-    rating: 10.0,
     reviewsCount: 100,
     trailer: `some-trailer.mp4`,
+    duration: 90,
+    comments: [
+      {
+        id: `111`,
+        user: `User`,
+        date: new Date(),
+        text: `good film`,
+        rate: 9.0,
+      },
+      {
+        id: `222`,
+        user: `Another User`,
+        date: new Date(),
+        text: `bad film`,
+        rate: 1.0,
+      },
+    ],
   },
   {
     id: `456`,
@@ -23,8 +39,24 @@ export const movies = [
     cast: [`Actor One`, `Actor Two`],
     cover: `another-bg-poster.jpg`,
     description: `Awful film`,
-    rating: 2.0,
+    duration: 60,
     reviewsCount: 50,
     trailer: `another-trailer.mp4`,
+    comments: [],
   },
+];
+
+export const tabs = [
+  {
+    name: `Overview`,
+    link: `/`,
+  },
+  {
+    name: `Details`,
+    link: `/details`
+  },
+  {
+    name: `Reviews`,
+    link: `/reviews`,
+  }
 ];

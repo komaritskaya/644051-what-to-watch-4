@@ -1,16 +1,12 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import MoviePage from './movie-page';
+import MoviePageReviews from './movie-page-reviews';
 import {movies} from '../../mocks/test-data';
 
-it(`Render Movie Page`, () => {
-  const movie = movies[0];
-
+it(`Render Movie Page Reviews`, () => {
   const tree = renderer
-    .create(<MoviePage
-      movie={movie}
-      allMovies={movies}
-      onCardClick={() => {}}
+    .create(<MoviePageReviews
+      movie={movies[0]}
     />)
     .toJSON();
 
