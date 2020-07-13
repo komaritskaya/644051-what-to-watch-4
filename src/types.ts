@@ -16,7 +16,6 @@ export interface Movie {
   director: string;
   cast: string[];
   description: string;
-  reviewsCount: number;
   trailer: string;
   duration: unknown;
   comments: Comment[];

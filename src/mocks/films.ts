@@ -114,8 +114,7 @@ const generateMovie = (): Movie => ({
   cast: getMultipleRandomItemsFromArray(ACTORS),
   year: getRandomInt(1980, 2020),
   description: DESCRIPTION,
-  duration: generateDurationInMinutes(0, 180),
-  reviewsCount: getRandomInt(0, 100),
+  duration: generateDurationInMinutes(60, 180),
   trailer: TRAILER,
   comments: generateComments(getRandomInt(5, 10)),
 });

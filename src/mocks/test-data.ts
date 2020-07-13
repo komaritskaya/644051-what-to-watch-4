@@ -9,9 +9,8 @@ export const movies = [
     cast: [`Actor One`, `Actor Two`],
     cover: `some-bg-poster.jpg`,
     description: `Damn good film`,
-    reviewsCount: 100,
     trailer: `some-trailer.mp4`,
-    duration: 90,
+    duration: 100,
     comments: [
       {
         id: `111`,
@@ -40,7 +39,6 @@ export const movies = [
     cover: `another-bg-poster.jpg`,
     description: `Awful film`,
     duration: 60,
-    reviewsCount: 50,
     trailer: `another-trailer.mp4`,
     comments: [],
   },
