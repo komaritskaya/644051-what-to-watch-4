@@ -8,7 +8,6 @@ it(`Render More-Like-This Component`, () => {
   const tree = renderer
     .create(<MoreLikeThis
       movie={movies[0]}
-      onCardClick={() => {}}
       allMovies={movies}
     />)
     .toJSON();

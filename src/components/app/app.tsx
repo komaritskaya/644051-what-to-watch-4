@@ -1,4 +1,4 @@
-import React, {PureComponent} from 'react';
+import React from 'react';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import Main from '../main/main';
 import MoviePage from '../movie-page/movie-page';
@@ -8,66 +8,26 @@ interface AppProps {
   movies: Movie[];
   currentMovie: Movie;
 }
-interface AppState {
-  detailedMovieId: string;
-}
 
-class App extends PureComponent<AppProps, AppState> {
-  constructor(props) {
-    super(props);
-    this.state = {
-      detailedMovieId: null,
-    };
+const App: React.FC<AppProps> = ({movies, currentMovie}) => {
+  return (
+    <BrowserRouter>
+      <Switch>
+        <Route exact path="/">
+          <Main
+            movies={movies}
+            currentMovie={currentMovie}
+          />
+        </Route>
 
-    this._handleCardClick = this._handleCardClick.bind(this);
-  }
-
-  _handleCardClick(id) {
-    this.setState({
-      detailedMovieId: id,
-    });
-  }
-
-  _renderApp(movies, currentMovie, detailedMovieId) {
-    if (detailedMovieId) {
-      return (
-        <MoviePage
-          movie={this.props.movies.find((movie) => movie.id === detailedMovieId)}
-          allMovies={movies}
-          onCardClick={this._handleCardClick}
-        />
-      );
-    }
-
-    return (
-      <Main
-        movies={movies}
-        currentMovie={currentMovie}
-        onCardClick={this._handleCardClick}
-      />
-    );
-  }
-
-  render() {
-    const {movies, currentMovie} = this.props;
-    const {detailedMovieId} = this.state;
-    return (
-      <BrowserRouter>
-        <Switch>
-          <Route exact path="/">
-            {this._renderApp(movies, currentMovie, detailedMovieId)}
-          </Route>
-          <Route exact path="/dev-movie-page">
-            <MoviePage
-              movie={movies.find((movie) => movie.id === detailedMovieId) || movies[0]}
-              allMovies={movies}
-              onCardClick={this._handleCardClick}
-            />
-          </Route>
-        </Switch>
-      </BrowserRouter>
-    );
-  }
-}
+        <Route exact path="/:id">
+          <MoviePage
+            allMovies={movies}
+          />
+        </Route>
+      </Switch>
+    </BrowserRouter>
+  );
+};
 
 export default App;

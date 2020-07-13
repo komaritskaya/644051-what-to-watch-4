@@ -1,11 +1,11 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import VideoPlayer from '../video-player/video-player';
 import {Movie} from '../../types';
 import {VIDEO_PLAYER_TIMEOUT} from '../../const';
 
 interface MovieCardProps {
   movie: Movie;
-  onCardClick: (id: string) => void;
   onCardHover: (id: string) => void;
   onCardLeave: () => void;
   isActive: boolean;
@@ -33,7 +33,7 @@ class MovieCard extends React.PureComponent<MovieCardProps, MovieCardState> {
   }
 
   render() {
-    const {movie, onCardClick, onCardHover, onCardLeave} = this.props;
+    const {movie, onCardHover, onCardLeave} = this.props;
     const {title, poster, trailer} = movie;
     return (
       <article
@@ -45,24 +45,23 @@ class MovieCard extends React.PureComponent<MovieCardProps, MovieCardState> {
           onCardLeave();
         }}
       >
-        <div
+        <Link
           className="small-movie-card__image"
-          onClick={() => onCardClick(movie.id)}
+          to={`/${movie.id}`}
         >
           <VideoPlayer
             poster={poster}
             src={trailer}
             isPlaying={this.state.isPlaying}
           />
-        </div>
+        </Link>
         <h3 className="small-movie-card__title">
-          <a
+          <Link
             className="small-movie-card__link"
-            href="#"
-            onClick={() => onCardClick(movie.id)}
+            to={`/${movie.id}`}
           >
             {title}
-          </a>
+          </Link>
         </h3>
       </article>
     );

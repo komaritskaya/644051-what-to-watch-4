@@ -1,5 +1,4 @@
 const path = require(`path`);
-const MomentLocalesPlugin = require(`moment-locales-webpack-plugin`);
 
 module.exports = {
   entry: `./src/index.tsx`,
@@ -25,16 +24,13 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        use: ['source-map-loader'],
-        enforce: 'pre',
+        use: [`source-map-loader`],
+        enforce: `pre`,
       },
     ],
   },
   devtool: `source-map`,
   resolve: {
-    extensions: ['.js', '.jsx', '.json', '.ts', '.tsx'],
+    extensions: [`.js`, `.jsx`, `.json`, `.ts`, `.tsx`],
   },
-  plugins: [
-    new MomentLocalesPlugin()
-  ],
 };

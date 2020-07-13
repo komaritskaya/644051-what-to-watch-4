@@ -6,6 +6,7 @@ import {
   getMultipleRandomItemsFromArray
 } from '../utils';
 import {generateComments} from './comments';
+import {Movie} from '../types';
 
 const MOVIES_COUNT = 8;
 
@@ -103,7 +104,7 @@ const generateDurationInMinutes = (min, max) => {
   return minutes;
 };
 
-const generateMovie = () => ({
+const generateMovie = (): Movie => ({
   id: nanoid(),
   title: getSingleRandomItemFromArray(TITLES),
   poster: getSingleRandomItemFromArray(POSTERS),
@@ -119,7 +120,7 @@ const generateMovie = () => ({
   comments: generateComments(getRandomInt(5, 10)),
 });
 
-const generateMovies = (count) => {
+const generateMovies = (count): Movie[] => {
   return new Array(count)
     .fill(``)
     .map(generateMovie);

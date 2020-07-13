@@ -1,4 +1,5 @@
 import React from 'react';
+import 'moment/locale/ru';
 import ReactDOM from 'react-dom';
 import {movies, currentMovie} from './mocks/films';
 import App from './components/app/app';

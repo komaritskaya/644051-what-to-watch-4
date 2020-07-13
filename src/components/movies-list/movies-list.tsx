@@ -4,7 +4,6 @@ import {Movie} from '../../types';
 
 interface MoviesListProps {
   movies: Movie[];
-  onCardClick: (id: string) => void;
 }
 
 interface MoviesListState {
@@ -33,7 +32,7 @@ class MoviesList extends React.PureComponent<MoviesListProps, MoviesListState> {
   }
 
   render() {
-    const {movies, onCardClick} = this.props;
+    const {movies} = this.props;
     const {activeMovieId} = this.state;
     return (
       <div className="catalog__movies-list">
@@ -42,7 +41,6 @@ class MoviesList extends React.PureComponent<MoviesListProps, MoviesListState> {
             <MovieCard
               key={movie.id}
               movie={movie}
-              onCardClick={onCardClick}
               onCardHover={this._onCardHover}
               onCardLeave={this._onCardLeave}
               isActive={movie.id === activeMovieId}
