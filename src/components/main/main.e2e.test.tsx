@@ -10,8 +10,6 @@ Enzyme.configure({
 });
 
 it(`Should img or title link be pressed`, () => {
-  const onCardClick = jest.fn();
-
   const main = mount(
       <Router>
         <Main
@@ -21,11 +19,6 @@ it(`Should img or title link be pressed`, () => {
       </Router>
   );
 
-  const titleLink = main.find(`.small-movie-card__link`).first();
-  const imageLink = main.find(`.small-movie-card__image`).first();
-
-  titleLink.simulate(`click`);
-  imageLink.simulate(`click`);
-
-  expect(onCardClick.mock.calls.length).toBe(0); // FIX
+  const cards = main.find(`article.small-movie-card`);
+  expect(cards.length).toBe(movies.length);
 });
