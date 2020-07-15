@@ -1,5 +1,4 @@
 import React from 'react';
-import moment from 'moment';
 import {Movie} from '../../types';
 
 interface MoviePageDetailsProps {
@@ -16,8 +15,8 @@ const MoviePageDetails: React.FC<MoviePageDetailsProps> = ({movie}) => {
   } = movie;
   const castString = cast.join(`\n`);
 
-  const hoursString = moment(duration).hours() ? `${moment(duration).hours()}h ` : ``;
-  const minutesString = moment(duration).minutes() ? `${moment(duration).minutes()}m` : ``;
+  const hoursString = duration.hours() ? `${duration.hours()}h ` : ``;
+  const minutesString = duration.minutes() ? `${duration.minutes()}m` : ``;
   const durationString = `${hoursString}${minutesString}`;
 
   return (

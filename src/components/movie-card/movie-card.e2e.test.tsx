@@ -1,4 +1,5 @@
 import React from 'react';
+import {BrowserRouter as Router} from 'react-router-dom';
 import Enzyme, {mount} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import MovieCard from './movie-card';
@@ -13,13 +14,14 @@ it(`Should movie card be hovered`, () => {
   const movie = movies[0];
 
   const movieCard = mount(
-      <MovieCard
-        movie={movie}
-        onCardHover={onCardHover}
-        onCardLeave={()=> {}}
-        onCardClick={() => {}}
-        isActive={false}
-      />
+      <Router>
+        <MovieCard
+          movie={movie}
+          onCardHover={onCardHover}
+          onCardLeave={()=> {}}
+          isActive={false}
+        />
+      </Router>
   );
 
   movieCard.simulate(`mouseenter`);

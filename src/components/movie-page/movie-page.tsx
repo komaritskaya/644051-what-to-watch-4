@@ -1,5 +1,5 @@
 import React from 'react';
-import {HashRouter as Router, Route, Switch} from 'react-router-dom';
+import {HashRouter as Router, Route, Switch, withRouter, RouteComponentProps} from 'react-router-dom';
 import TabsList from '../tabs-list/tabs-list';
 import MoviePageOverview from '../movie-page-overview/movie-page-overview';
 import MoviePageDetails from '../movie-page-details/movie-page-details';
@@ -8,10 +8,10 @@ import MoreLikeThis from '../more-like-this/more-like-this';
 import {Movie} from '../../types';
 
 interface MoviePageProps {
-  movie: Movie;
   allMovies: Movie[];
-  onCardClick: (id: string) => void;
 }
+
+type PropType = RouteComponentProps<{id: string}> & MoviePageProps;
 
 const Tab = {
   OVERVIEW: {
@@ -28,7 +28,8 @@ const Tab = {
   }
 };
 
-const MoviePage: React.FC<MoviePageProps> = ({movie, allMovies, onCardClick}: MoviePageProps) => {
+const MoviePage: React.FC<PropType> = ({allMovies, match: {params: {id}}}) => {
+  const movie = allMovies.find((m) => m.id === id) || allMovies[0];
   const {
     title,
     genre,
@@ -116,7 +117,6 @@ const MoviePage: React.FC<MoviePageProps> = ({movie, allMovies, onCardClick}: Mo
         <MoreLikeThis
           movie={movie}
           allMovies={allMovies}
-          onCardClick={onCardClick}
         />
 
         <footer className="page-footer">
@@ -137,4 +137,4 @@ const MoviePage: React.FC<MoviePageProps> = ({movie, allMovies, onCardClick}: Mo
   );
 };
 
-export default MoviePage;
+export default withRouter(MoviePage);

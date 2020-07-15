@@ -2,9 +2,9 @@ import nanoid from 'nanoid';
 import {
   getRandomNumberWithDecimals,
   getRandomDate,
-  getSingleRandomItemFromArray,
-  getMultipleRandomItemsFromArray
+  getSingleRandomItemFromArray
 } from '../utils';
+import {Comment} from '../types';
 
 const USERS = [
   `Tim Macoveev`,
@@ -24,11 +24,11 @@ const PARAGRAPHS = [
   `It is certainly a magical and childlike way of storytelling, even if the content is a little more adult.`,
 ];
 
-export const generateComment = () => ({
+export const generateComment = (): Comment => ({
   id: nanoid(),
   user: getSingleRandomItemFromArray(USERS),
   date: getRandomDate(new Date(2019, 1, 1), new Date()),
-  text: getMultipleRandomItemsFromArray(PARAGRAPHS),
+  text: getSingleRandomItemFromArray(PARAGRAPHS),
   rate: getRandomNumberWithDecimals(0, 10, 1),
 });
 

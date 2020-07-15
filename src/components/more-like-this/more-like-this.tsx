@@ -5,10 +5,9 @@ import {Movie} from '../../types';
 interface MoreLikeThisProps {
   movie: Movie;
   allMovies: Movie[];
-  onCardClick: (id: string) => void;
 }
 
-const MoreLikeThis: React.FC<MoreLikeThisProps> = ({movie, allMovies, onCardClick}) => {
+const MoreLikeThis: React.FC<MoreLikeThisProps> = ({movie, allMovies}) => {
   const similarMovies = allMovies.filter((it) => it.genre === movie.genre && it.id !== movie.id);
   const shownSimilarMovies = similarMovies.length > 4 ? similarMovies.slice(0, 4) : similarMovies;
   return (
@@ -17,7 +16,6 @@ const MoreLikeThis: React.FC<MoreLikeThisProps> = ({movie, allMovies, onCardClic
 
       <MoviesList
         movies={shownSimilarMovies}
-        onCardClick={onCardClick}
       />
     </section>
   );

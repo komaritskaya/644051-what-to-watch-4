@@ -9,8 +9,9 @@ exports[`Should Movies List component render correctly 1`] = `
     onMouseEnter={[Function]}
     onMouseOut={[Function]}
   >
-    <div
+    <a
       className="small-movie-card__image"
+      href="/123"
       onClick={[Function]}
     />
     <h3
@@ -18,7 +19,7 @@ exports[`Should Movies List component render correctly 1`] = `
     >
       <a
         className="small-movie-card__link"
-        href="#"
+        href="/123"
         onClick={[Function]}
       >
         Some Film
@@ -30,8 +31,9 @@ exports[`Should Movies List component render correctly 1`] = `
     onMouseEnter={[Function]}
     onMouseOut={[Function]}
   >
-    <div
+    <a
       className="small-movie-card__image"
+      href="/456"
       onClick={[Function]}
     />
     <h3
@@ -39,7 +41,7 @@ exports[`Should Movies List component render correctly 1`] = `
     >
       <a
         className="small-movie-card__link"
-        href="#"
+        href="/456"
         onClick={[Function]}
       >
         Another Film

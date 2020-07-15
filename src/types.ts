@@ -1,3 +1,5 @@
+import moment from 'moment';
+
 export interface Comment {
   id: string;
   user: string;
@@ -16,8 +18,7 @@ export interface Movie {
   director: string;
   cast: string[];
   description: string;
-  reviewsCount: number;
   trailer: string;
-  duration: unknown;
+  duration: moment.Duration;
   comments: Comment[];
 }

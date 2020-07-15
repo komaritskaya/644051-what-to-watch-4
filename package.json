@@ -50,7 +50,6 @@
   },
   "dependencies": {
     "moment": "2.24.0",
-    "moment-locales-webpack-plugin": "1.2.0",
     "nanoid": "2.1.11",
     "react": "16.13.1",
     "react-dom": "16.13.1",

@@ -1,4 +1,5 @@
 import React from 'react';
+import {BrowserRouter as Router} from 'react-router-dom';
 import renderer from 'react-test-renderer';
 import Main from './main';
 import {movies} from '../../mocks/test-data';
@@ -6,12 +7,14 @@ import {movies} from '../../mocks/test-data';
 jest.mock(`../video-player/video-player`);
 it(`Should Main component render correctly`, () => {
   const tree = renderer
-    .create(<Main
-      currentMovie={movies[0]}
-      movies={movies}
-      onCardClick={(): void => {}}
-    />)
-    .toJSON();
+    .create(
+        <Router>
+          <Main
+            currentMovie={movies[0]}
+            movies={movies}
+          />
+        </Router>
+    ).toJSON();
 
   expect(tree).toMatchSnapshot();
 });
