@@ -22,3 +22,14 @@ export interface Movie {
   duration: moment.Duration;
   comments: Comment[];
 }
+
+export interface RootState {
+  movies: Movie[];
+  filter: string;
+}
+
+
+export interface Action {
+  type: `SET_FILTER` | `ERROR`;
+  payload: unknown;
+}
