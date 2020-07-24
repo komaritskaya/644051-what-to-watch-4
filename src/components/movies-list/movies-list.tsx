@@ -4,6 +4,7 @@ import {Movie} from '../../types';
 
 interface MoviesListProps {
   movies: Movie[];
+  activeGenre: string;
 }
 
 interface MoviesListState {
@@ -17,6 +18,15 @@ class MoviesList extends React.PureComponent<MoviesListProps, MoviesListState> {
 
     this._onCardHover = this._onCardHover.bind(this);
     this._onCardLeave = this._onCardLeave.bind(this);
+    this._filterMoviesByGenre = this._filterMoviesByGenre.bind(this);
+  }
+
+  _filterMoviesByGenre(movies: Movie[], genre: string) {
+    if (!genre) {
+      return movies;
+    }
+
+    return movies.filter((movie: Movie) => movie.genre === genre);
   }
 
   _onCardHover(id: string) {
@@ -32,12 +42,13 @@ class MoviesList extends React.PureComponent<MoviesListProps, MoviesListState> {
   }
 
   render() {
-    const {movies} = this.props;
+    const {movies, activeGenre} = this.props;
     const {activeMovieId} = this.state;
+    const filteredMovies = this._filterMoviesByGenre(movies, activeGenre);
     return (
       <div className="catalog__movies-list">
         {
-          movies.map((movie) => (
+          filteredMovies.map((movie) => (
             <MovieCard
               key={movie.id}
               movie={movie}

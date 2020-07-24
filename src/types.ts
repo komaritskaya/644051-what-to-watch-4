@@ -1,5 +1,4 @@
 import moment from 'moment';
-
 export interface Comment {
   id: string;
   user: string;
@@ -21,4 +20,14 @@ export interface Movie {
   trailer: string;
   duration: moment.Duration;
   comments: Comment[];
+}
+
+export interface RootState {
+  movies: Movie[];
+  activeGenre: string;
+}
+
+export interface Action {
+  type: `SET_GENRE` | `ERROR`;
+  payload: unknown;
 }

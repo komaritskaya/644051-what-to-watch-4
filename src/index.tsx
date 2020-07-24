@@ -1,14 +1,24 @@
 import React from 'react';
-import 'moment/locale/ru';
 import ReactDOM from 'react-dom';
+import {createStore} from 'redux';
+import {Provider} from 'react-redux';
+import 'moment/locale/ru';
 import {movies, currentMovie} from './mocks/films';
+import {reducer} from './reducer/reducer';
 import App from './components/app/app';
 
+const store = createStore(
+    reducer,
+    window.__REDUX_DEVTOOLS_EXTENSION__ ? window.__REDUX_DEVTOOLS_EXTENSION__() : (f) => f
+);
+
 ReactDOM.render(
-    <App
-      currentMovie={currentMovie}
-      movies={movies}
-    />, document.querySelector(`#root`));
+    <Provider store={store}>
+      <App
+        currentMovie={currentMovie}
+        movies={movies}
+      />
+    </Provider>, document.querySelector(`#root`));
 
 
 //    /\_/\
