@@ -1,5 +1,4 @@
 import moment from 'moment';
-
 export interface Comment {
   id: string;
   user: string;
@@ -25,11 +24,10 @@ export interface Movie {
 
 export interface RootState {
   movies: Movie[];
-  filter: string;
+  activeGenre: string;
 }
 
-
 export interface Action {
-  type: `SET_FILTER` | `ERROR`;
+  type: `SET_GENRE` | `ERROR`;
   payload: unknown;
 }

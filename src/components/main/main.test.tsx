@@ -12,6 +12,8 @@ it(`Should Main component render correctly`, () => {
           <Main
             currentMovie={movies[0]}
             movies={movies}
+            activeGenre={movies[0].genre}
+            setGenre={() => {}}
           />
         </Router>
     ).toJSON();

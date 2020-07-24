@@ -15,6 +15,8 @@ it(`Should img or title link be pressed`, () => {
         <Main
           movies={movies}
           currentMovie={movies[0]}
+          activeGenre={null}
+          setGenre={() => {}}
         />
       </Router>
   );

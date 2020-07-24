@@ -1,15 +1,19 @@
-import React from 'react';
+import React, {Dispatch} from 'react';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
+import {connect} from 'react-redux';
+import {ActionCreator} from '../../reducer/reducer';
 import Main from '../main/main';
 import MoviePage from '../movie-page/movie-page';
-import {Movie} from '../../types';
+import {Movie, RootState, Action} from '../../types';
 
 interface AppProps {
   movies: Movie[];
   currentMovie: Movie;
+  activeGenre: string;
+  setGenre: (genre: string | null) => void;
 }
 
-const App: React.FC<AppProps> = ({movies, currentMovie}) => {
+const App: React.FC<AppProps> = ({movies, currentMovie, activeGenre, setGenre}) => {
   return (
     <BrowserRouter>
       <Switch>
@@ -17,6 +21,8 @@ const App: React.FC<AppProps> = ({movies, currentMovie}) => {
           <Main
             movies={movies}
             currentMovie={currentMovie}
+            activeGenre={activeGenre}
+            setGenre={setGenre}
           />
         </Route>
 
@@ -30,4 +36,17 @@ const App: React.FC<AppProps> = ({movies, currentMovie}) => {
   );
 };
 
-export default App;
+const mapStateToProps = (state: RootState) => ({
+  movies: state.movies,
+  activeGenre: state.activeGenre,
+});
+
+const mapDispatchToProps = (dispatch: Dispatch<Action>) => ({
+  setGenre(genre: string) {
+    dispatch(ActionCreator.setGenre(genre));
+  },
+});
+
+export {App};
+export default connect(mapStateToProps, mapDispatchToProps)(App);
+

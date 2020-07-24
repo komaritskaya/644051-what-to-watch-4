@@ -3,21 +3,21 @@ import {RootState, Action} from '../types';
 
 const initialState: RootState = {
   movies,
-  filter: null,
+  activeGenre: null,
 };
 
 const ActionCreator = {
-  setFilter: (filter: string): Action => ({
-    type: `SET_FILTER`,
-    payload: filter,
+  setGenre: (genre: string): Action => ({
+    type: `SET_GENRE`,
+    payload: genre,
   }),
 };
 
 const reducer = (state = initialState, action: Action) => {
   switch (action.type) {
-    case `SET_FILTER`:
-      const filter = action.payload;
-      return {...state, filter};
+    case `SET_GENRE`:
+      const activeGenre = action.payload;
+      return {...state, activeGenre};
   }
 
   return state;

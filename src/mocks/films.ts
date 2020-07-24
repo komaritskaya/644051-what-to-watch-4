@@ -99,7 +99,7 @@ const DESCRIPTION = `In the 1930s, the Grand Budapest Hotel is a popular Europea
 
 const TRAILER = `https://upload.wikimedia.org/wikipedia/commons/transcoded/b/b3/Big_Buck_Bunny_Trailer_400p.ogv/Big_Buck_Bunny_Trailer_400p.ogv.360p.webm`;
 
-const generateDurationInMinutes = (min, max) => {
+const generateDurationInMinutes = (min: number, max: number) => {
   const minutes = moment.duration(getRandomInt(min, max), `minutes`);
   return minutes;
 };
@@ -119,7 +119,7 @@ const generateMovie = (): Movie => ({
   comments: generateComments(getRandomInt(5, 10)),
 });
 
-const generateMovies = (count): Movie[] => {
+const generateMovies = (count: number): Movie[] => {
   return new Array(count)
     .fill(``)
     .map(generateMovie);
