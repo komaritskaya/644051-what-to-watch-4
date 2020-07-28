@@ -1,6 +1,7 @@
 import React from 'react';
 import MoviesList from '../movies-list/movies-list';
 import GenresList from '../genres-list/genres-list';
+import ShowMoreBtn from '../show-more-btn/show-more-btn';
 import {Movie} from '../../types';
 
 interface MainProps {
@@ -8,10 +9,29 @@ interface MainProps {
   currentMovie: Movie;
   activeGenre: string;
   setGenre: (genre: string | null) => void;
+  addShownMovies: (count: number) => void;
+  shownMoviesCount: number;
 }
 
-const Main: React.FC<MainProps> = ({movies, currentMovie, activeGenre, setGenre}: MainProps) => {
+const filterMoviesByGenre = (movies: Movie[], genre: string) => {
+  if (!genre) {
+    return movies;
+  }
+
+  return movies.filter((movie: Movie) => movie.genre === genre);
+};
+
+const Main: React.FC<MainProps> = ({
+  movies,
+  currentMovie,
+  activeGenre,
+  setGenre,
+  addShownMovies,
+  shownMoviesCount,
+}: MainProps) => {
   const {title, genre, year} = currentMovie;
+  const filteredMovies = filterMoviesByGenre(movies, activeGenre);
+  const shownMovies = filteredMovies.slice(0, shownMoviesCount);
   return (
     <React.Fragment>
       <section className="movie-card">
@@ -80,13 +100,10 @@ const Main: React.FC<MainProps> = ({movies, currentMovie, activeGenre, setGenre}
           />
 
           <MoviesList
-            movies={movies}
-            activeGenre={activeGenre}
+            movies={shownMovies}
           />
 
-          <div className="catalog__more">
-            <button className="catalog__button" type="button">Show more</button>
-          </div>
+          {filteredMovies.length > shownMovies.length && <ShowMoreBtn onClick={addShownMovies} />}
         </section>
 
         <footer className="page-footer">

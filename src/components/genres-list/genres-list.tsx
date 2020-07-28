@@ -1,5 +1,6 @@
 import React from 'react';
 import {Movie} from '../../types';
+import {MAX_GENRES_COUNT} from '../../const';
 
 interface GenresListProps {
   activeGenre: string;
@@ -8,7 +9,6 @@ interface GenresListProps {
 }
 
 const ACTIVE_CLASS = `catalog__genres-item--active`;
-const MAX_GENRES_COUNT = 9;
 
 const getGenresList = (moviesList) => {
   return [...new Set(moviesList.map((movie) => movie.genre))].slice(0, MAX_GENRES_COUNT);

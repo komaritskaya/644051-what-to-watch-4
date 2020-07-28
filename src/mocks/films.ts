@@ -8,7 +8,7 @@ import {
 import {generateComments} from './comments';
 import {Movie} from '../types';
 
-const MOVIES_COUNT = 8;
+const MOVIES_COUNT = 50;
 
 const TITLES = [
   `Avatar`,

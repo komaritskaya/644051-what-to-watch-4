@@ -25,9 +25,10 @@ export interface Movie {
 export interface RootState {
   movies: Movie[];
   activeGenre: string;
+  shownMoviesCount: number;
 }
 
 export interface Action {
-  type: `SET_GENRE` | `ERROR`;
-  payload: unknown;
+  type: `SET_GENRE` | `ADD_SHOWN_MOVIES`| `RESET_SHOWN_MOVIES` | `ERROR`;
+  payload?: unknown;
 }

@@ -4,6 +4,7 @@ import Enzyme, {mount} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import Main from './main';
 import {movies} from '../../mocks/test-data';
+import {MOVIES_COUNT} from '../../const';
 
 Enzyme.configure({
   adapter: new Adapter(),
@@ -17,6 +18,8 @@ it(`Should img or title link be pressed`, () => {
           currentMovie={movies[0]}
           activeGenre={null}
           setGenre={() => {}}
+          addShownMovies={() => {}}
+          shownMoviesCount={MOVIES_COUNT}
         />
       </Router>
   );
