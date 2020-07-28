@@ -3,6 +3,7 @@ import {BrowserRouter as Router} from 'react-router-dom';
 import renderer from 'react-test-renderer';
 import Main from './main';
 import {movies} from '../../mocks/test-data';
+import {MOVIES_COUNT} from '../../const';
 
 jest.mock(`../video-player/video-player`);
 it(`Should Main component render correctly`, () => {
@@ -12,8 +13,10 @@ it(`Should Main component render correctly`, () => {
           <Main
             currentMovie={movies[0]}
             movies={movies}
-            activeGenre={movies[0].genre}
+            addShownMovies={() => {}}
+            shownMoviesCount={MOVIES_COUNT}
             setGenre={() => {}}
+            activeGenre={null}
           />
         </Router>
     ).toJSON();

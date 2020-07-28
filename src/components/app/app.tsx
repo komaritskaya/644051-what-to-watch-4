@@ -11,9 +11,19 @@ interface AppProps {
   currentMovie: Movie;
   activeGenre: string;
   setGenre: (genre: string | null) => void;
+  addShownMovies: (count: number) => void;
+  resetShownMovies: () => void;
+  shownMoviesCount: number;
 }
 
-const App: React.FC<AppProps> = ({movies, currentMovie, activeGenre, setGenre}) => {
+const App: React.FC<AppProps> = ({
+  movies,
+  currentMovie,
+  activeGenre,
+  setGenre,
+  addShownMovies,
+  shownMoviesCount,
+}) => {
   return (
     <BrowserRouter>
       <Switch>
@@ -23,6 +33,8 @@ const App: React.FC<AppProps> = ({movies, currentMovie, activeGenre, setGenre}) 
             currentMovie={currentMovie}
             activeGenre={activeGenre}
             setGenre={setGenre}
+            addShownMovies={addShownMovies}
+            shownMoviesCount={shownMoviesCount}
           />
         </Route>
 
@@ -39,11 +51,16 @@ const App: React.FC<AppProps> = ({movies, currentMovie, activeGenre, setGenre}) 
 const mapStateToProps = (state: RootState) => ({
   movies: state.movies,
   activeGenre: state.activeGenre,
+  shownMoviesCount: state.shownMoviesCount,
 });
 
 const mapDispatchToProps = (dispatch: Dispatch<Action>) => ({
   setGenre(genre: string) {
     dispatch(ActionCreator.setGenre(genre));
+    dispatch(ActionCreator.resetShownMovies());
+  },
+  addShownMovies(count: number) {
+    dispatch(ActionCreator.addShownMovies(count));
   },
 });
 
