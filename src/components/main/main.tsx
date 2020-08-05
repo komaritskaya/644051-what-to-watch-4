@@ -2,6 +2,7 @@ import React from 'react';
 import MoviesList from '../movies-list/movies-list';
 import GenresList from '../genres-list/genres-list';
 import ShowMoreBtn from '../show-more-btn/show-more-btn';
+import withActiveMovie from '../../hocs/with-active-movie/with-active-movie';
 import {Movie} from '../../types';
 
 interface MainProps {
@@ -12,6 +13,8 @@ interface MainProps {
   addShownMovies: (count: number) => void;
   shownMoviesCount: number;
 }
+
+const MoviesListWrapped = withActiveMovie(MoviesList);
 
 const filterMoviesByGenre = (movies: Movie[], genre: string) => {
   if (!genre) {
@@ -99,7 +102,7 @@ const Main: React.FC<MainProps> = ({
             setGenre={setGenre}
           />
 
-          <MoviesList
+          <MoviesListWrapped
             movies={shownMovies}
           />
 
