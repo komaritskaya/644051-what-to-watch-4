@@ -12,7 +12,7 @@ interface MovieCardProps {
 }
 
 const MovieCard: React.FC<MovieCardProps> = ({movie, onCardHover, onCardLeave, isPlaying}) => {
-  const {title, poster, trailer} = movie;
+  const {title, previewImage, trailer} = movie;
 
   return (
     <article
@@ -29,7 +29,7 @@ const MovieCard: React.FC<MovieCardProps> = ({movie, onCardHover, onCardLeave, i
         to={`/${movie.id}`}
       >
         <VideoPlayer
-          poster={poster}
+          poster={previewImage}
           src={trailer}
           isPlaying={isPlaying}
         />

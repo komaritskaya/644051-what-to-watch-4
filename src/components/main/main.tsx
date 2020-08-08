@@ -32,14 +32,14 @@ const Main: React.FC<MainProps> = ({
   addShownMovies,
   shownMoviesCount,
 }: MainProps) => {
-  const {title, genre, year} = currentMovie;
+  const {title, genre, year, cover, poster} = currentMovie;
   const filteredMovies = filterMoviesByGenre(movies, activeGenre);
   const shownMovies = filteredMovies.slice(0, shownMoviesCount);
   return (
     <React.Fragment>
       <section className="movie-card">
         <div className="movie-card__bg">
-          <img src="img/bg-the-grand-budapest-hotel.jpg" alt="The Grand Budapest Hotel" />
+          <img src={cover} alt={title} />
         </div>
 
         <h1 className="visually-hidden">WTW</h1>
@@ -63,7 +63,7 @@ const Main: React.FC<MainProps> = ({
         <div className="movie-card__wrap">
           <div className="movie-card__info">
             <div className="movie-card__poster">
-              <img src="img/the-grand-budapest-hotel-poster.jpg" alt="The Grand Budapest Hotel poster" width="218" height="327" />
+              <img src={poster} alt={`${title} poster`} width="218" height="327" />
             </div>
 
             <div className="movie-card__desc">

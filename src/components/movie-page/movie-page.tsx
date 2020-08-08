@@ -42,7 +42,7 @@ const MoviePage: React.FC<PropType> = ({allMovies, match: {params: {id}}}) => {
       <section className="movie-card movie-card--full">
         <div className="movie-card__hero">
           <div className="movie-card__bg">
-            <img src={`img/${cover}`} alt={title} />
+            <img src={cover} alt={title} />
           </div>
 
           <h1 className="visually-hidden">WTW</h1>
@@ -93,7 +93,7 @@ const MoviePage: React.FC<PropType> = ({allMovies, match: {params: {id}}}) => {
         <div className="movie-card__wrap movie-card__translate-top">
           <div className="movie-card__info">
             <div className="movie-card__poster movie-card__poster--big">
-              <img src={`img/${poster}`} alt={`${title} poster`} width="218" height="327" />
+              <img src={poster} alt={`${title} poster`} width="218" height="327" />
             </div>
 
             <div className="movie-card__desc">
@@ -103,7 +103,7 @@ const MoviePage: React.FC<PropType> = ({allMovies, match: {params: {id}}}) => {
                 <Switch>
                   <Route exact path={Tab.OVERVIEW.link} component={() => <MoviePageOverview movie={movie} />} />
                   <Route path={Tab.DETAILS.link} component={() => <MoviePageDetails movie={movie} />} />
-                  <Route path={Tab.REVIEWS.link} component={() => <MoviePageReviews movie={movie} />} />
+                  <Route path={Tab.REVIEWS.link} component={() => <MoviePageReviews />} />
                 </Switch>
 
               </Router>

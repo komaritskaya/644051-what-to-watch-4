@@ -13,22 +13,12 @@ export const movies = [
     description: `Damn good film`,
     trailer: `some-trailer.mp4`,
     duration: moment.duration(100, `minutes`),
-    comments: [
-      {
-        id: `111`,
-        user: `User`,
-        date: new Date(),
-        text: `good film`,
-        rate: 9.0,
-      },
-      {
-        id: `222`,
-        user: `Another User`,
-        date: new Date(),
-        text: `bad film`,
-        rate: 1.0,
-      },
-    ],
+    previewImage: `some-preview-image.jpg`,
+    background: `#000`,
+    video: `some-video.mp4`,
+    isFavorite: true,
+    rating: 5.0,
+    scoresCount: 50,
   },
   {
     id: `456`,
@@ -42,7 +32,12 @@ export const movies = [
     description: `Awful film`,
     duration: moment.duration(60, `minutes`),
     trailer: `another-trailer.mp4`,
-    comments: [],
+    previewImage: `another-preview-image.jpg`,
+    background: `#fff`,
+    video: `another-video.mp4`,
+    isFavorite: false,
+    rating: 10.0,
+    scoresCount: 70,
   },
 ];
 

@@ -16,7 +16,7 @@ exports[`Render Movie Page Reviews 1`] = `
         <p
           className="review__text"
         >
-          good film
+          It is certainly a magical and childlike way of storytelling, even if the content is a little more adult.
         </p>
         <footer
           className="review__details"
@@ -24,20 +24,152 @@ exports[`Render Movie Page Reviews 1`] = `
           <cite
             className="review__author"
           >
-            User
+            Elon Musk
           </cite>
           <time
             className="review__date"
             dateTime="2016-12-24"
           >
-            05 August, 2020
+            22 July, 2019
           </time>
         </footer>
       </blockquote>
       <div
         className="review__rating"
       >
-        9
+        5.4
+      </div>
+    </div>
+    <div
+      className="review"
+    >
+      <blockquote
+        className="review__quote"
+      >
+        <p
+          className="review__text"
+        >
+          Discerning travellers and Wes Anderson fans will luxuriate in the glorious Mittel-European kitsch of one of the director’s funniest and most exquisitely designed movies in years.
+        </p>
+        <footer
+          className="review__details"
+        >
+          <cite
+            className="review__author"
+          >
+            Elon Musk
+          </cite>
+          <time
+            className="review__date"
+            dateTime="2016-12-24"
+          >
+            30 May, 2020
+          </time>
+        </footer>
+      </blockquote>
+      <div
+        className="review__rating"
+      >
+        0.9
+      </div>
+    </div>
+    <div
+      className="review"
+    >
+      <blockquote
+        className="review__quote"
+      >
+        <p
+          className="review__text"
+        >
+          Anderson’s films are too precious for some, but for those of us willing to lose ourselves in them, they’re a delight. «The Grand Budapest Hotel» is no different, except that he has added a hint of gravitas to the mix, improving the recipe.
+        </p>
+        <footer
+          className="review__details"
+        >
+          <cite
+            className="review__author"
+          >
+            John Doe
+          </cite>
+          <time
+            className="review__date"
+            dateTime="2016-12-24"
+          >
+            08 February, 2019
+          </time>
+        </footer>
+      </blockquote>
+      <div
+        className="review__rating"
+      >
+        1.4
+      </div>
+    </div>
+    <div
+      className="review"
+    >
+      <blockquote
+        className="review__quote"
+      >
+        <p
+          className="review__text"
+        >
+          I didn’t find it amusing, and while I can appreciate the creativity, it’s an hour and 40 minutes I wish I could take back.
+        </p>
+        <footer
+          className="review__details"
+        >
+          <cite
+            className="review__author"
+          >
+            Boris Yeltsin
+          </cite>
+          <time
+            className="review__date"
+            dateTime="2016-12-24"
+          >
+            10 November, 2019
+          </time>
+        </footer>
+      </blockquote>
+      <div
+        className="review__rating"
+      >
+        7.5
+      </div>
+    </div>
+    <div
+      className="review"
+    >
+      <blockquote
+        className="review__quote"
+      >
+        <p
+          className="review__text"
+        >
+          Anderson’s films are too precious for some, but for those of us willing to lose ourselves in them, they’re a delight. «The Grand Budapest Hotel» is no different, except that he has added a hint of gravitas to the mix, improving the recipe.
+        </p>
+        <footer
+          className="review__details"
+        >
+          <cite
+            className="review__author"
+          >
+            Boris Yeltsin
+          </cite>
+          <time
+            className="review__date"
+            dateTime="2016-12-24"
+          >
+            23 February, 2019
+          </time>
+        </footer>
+      </blockquote>
+      <div
+        className="review__rating"
+      >
+        1.3
       </div>
     </div>
   </div>
@@ -53,7 +185,7 @@ exports[`Render Movie Page Reviews 1`] = `
         <p
           className="review__text"
         >
-          bad film
+          Discerning travellers and Wes Anderson fans will luxuriate in the glorious Mittel-European kitsch of one of the director’s funniest and most exquisitely designed movies in years.
         </p>
         <footer
           className="review__details"
@@ -61,20 +193,152 @@ exports[`Render Movie Page Reviews 1`] = `
           <cite
             className="review__author"
           >
-            Another User
+            Boris Yeltsin
           </cite>
           <time
             className="review__date"
             dateTime="2016-12-24"
           >
-            05 August, 2020
+            02 March, 2020
           </time>
         </footer>
       </blockquote>
       <div
         className="review__rating"
       >
-        1
+        9.5
+      </div>
+    </div>
+    <div
+      className="review"
+    >
+      <blockquote
+        className="review__quote"
+      >
+        <p
+          className="review__text"
+        >
+          Anderson’s films are too precious for some, but for those of us willing to lose ourselves in them, they’re a delight. «The Grand Budapest Hotel» is no different, except that he has added a hint of gravitas to the mix, improving the recipe.
+        </p>
+        <footer
+          className="review__details"
+        >
+          <cite
+            className="review__author"
+          >
+            John Doe
+          </cite>
+          <time
+            className="review__date"
+            dateTime="2016-12-24"
+          >
+            30 July, 2019
+          </time>
+        </footer>
+      </blockquote>
+      <div
+        className="review__rating"
+      >
+        1.8
+      </div>
+    </div>
+    <div
+      className="review"
+    >
+      <blockquote
+        className="review__quote"
+      >
+        <p
+          className="review__text"
+        >
+          It is certainly a magical and childlike way of storytelling, even if the content is a little more adult.
+        </p>
+        <footer
+          className="review__details"
+        >
+          <cite
+            className="review__author"
+          >
+            Boris Yeltsin
+          </cite>
+          <time
+            className="review__date"
+            dateTime="2016-12-24"
+          >
+            01 July, 2019
+          </time>
+        </footer>
+      </blockquote>
+      <div
+        className="review__rating"
+      >
+        5.1
+      </div>
+    </div>
+    <div
+      className="review"
+    >
+      <blockquote
+        className="review__quote"
+      >
+        <p
+          className="review__text"
+        >
+          It is certainly a magical and childlike way of storytelling, even if the content is a little more adult.
+        </p>
+        <footer
+          className="review__details"
+        >
+          <cite
+            className="review__author"
+          >
+            Tim Macoveev
+          </cite>
+          <time
+            className="review__date"
+            dateTime="2016-12-24"
+          >
+            22 September, 2019
+          </time>
+        </footer>
+      </blockquote>
+      <div
+        className="review__rating"
+      >
+        2.7
+      </div>
+    </div>
+    <div
+      className="review"
+    >
+      <blockquote
+        className="review__quote"
+      >
+        <p
+          className="review__text"
+        >
+          Discerning travellers and Wes Anderson fans will luxuriate in the glorious Mittel-European kitsch of one of the director’s funniest and most exquisitely designed movies in years.
+        </p>
+        <footer
+          className="review__details"
+        >
+          <cite
+            className="review__author"
+          >
+            Boris Yeltsin
+          </cite>
+          <time
+            className="review__date"
+            dateTime="2016-12-24"
+          >
+            16 April, 2019
+          </time>
+        </footer>
+      </blockquote>
+      <div
+        className="review__rating"
+      >
+        7.4
       </div>
     </div>
   </div>

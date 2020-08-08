@@ -15,6 +15,7 @@ const MoviePageDetails: React.FC<MoviePageDetailsProps> = ({movie}) => {
   } = movie;
   const castString = cast.join(`\n`);
 
+  // const durationAsMinutes = moment.duration(duration,);
   const hoursString = duration.hours() ? `${duration.hours()}h ` : ``;
   const minutesString = duration.minutes() ? `${duration.minutes()}m` : ``;
   const durationString = `${hoursString}${minutesString}`;
