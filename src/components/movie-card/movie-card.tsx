@@ -26,7 +26,7 @@ const MovieCard: React.FC<MovieCardProps> = ({movie, onCardHover, onCardLeave, i
     >
       <Link
         className="small-movie-card__image"
-        to={`/${movie.id}`}
+        to={`/movie/${movie.id}`}
       >
         <VideoPlayer
           poster={previewImage}

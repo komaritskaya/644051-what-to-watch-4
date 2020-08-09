@@ -25,7 +25,6 @@ const App: React.FC<AppProps> = ({
   activeGenre,
   shownMoviesCount,
 }) => {
-  console.log(movies);
   const currentMovie = movies.length && getSingleRandomItemFromArray(movies);
   return (
     <BrowserRouter>
@@ -41,7 +40,7 @@ const App: React.FC<AppProps> = ({
           />
         </Route>
 
-        <Route exact path="/:id">
+        <Route exact path="/movie/:id">
           <MoviePage
             allMovies={movies}
           />
