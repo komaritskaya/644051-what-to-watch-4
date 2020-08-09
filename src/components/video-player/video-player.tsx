@@ -30,7 +30,7 @@ class VideoPlayer extends PureComponent<VideoPlayerProps, VideoPlayerState> {
     const video = this._videoRef.current;
 
     video.src = src;
-    video.poster = `img/${poster}`;
+    video.poster = poster;
     video.muted = true;
 
     video.addEventListener(`canplaythrough`, this._onVideoCanPlayThrough);

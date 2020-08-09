@@ -1,14 +1,16 @@
 import React, {Dispatch} from 'react';
 import {BrowserRouter, Route, Switch} from 'react-router-dom';
 import {connect} from 'react-redux';
-import {ActionCreator} from '../../reducer/reducer';
+import {ActionCreator} from '../../reducer/app/app';
+import {getMovies} from '../../reducer/data/selectors';
+import {getGenre, getShownMoviesCount} from '../../reducer/app/selectors';
 import Main from '../main/main';
 import MoviePage from '../movie-page/movie-page';
-import {Movie, RootState, Action} from '../../types';
+import {Movie, AppAction} from '../../types';
+import {getSingleRandomItemFromArray} from '../../utils';
 
 interface AppProps {
   movies: Movie[];
-  currentMovie: Movie;
   activeGenre: string;
   setGenre: (genre: string | null) => void;
   addShownMovies: (count: number) => void;
@@ -18,12 +20,13 @@ interface AppProps {
 
 const App: React.FC<AppProps> = ({
   movies,
-  currentMovie,
-  activeGenre,
   setGenre,
   addShownMovies,
+  activeGenre,
   shownMoviesCount,
 }) => {
+  console.log(movies);
+  const currentMovie = movies.length && getSingleRandomItemFromArray(movies);
   return (
     <BrowserRouter>
       <Switch>
@@ -48,13 +51,13 @@ const App: React.FC<AppProps> = ({
   );
 };
 
-const mapStateToProps = (state: RootState) => ({
-  movies: state.movies,
-  activeGenre: state.activeGenre,
-  shownMoviesCount: state.shownMoviesCount,
+const mapStateToProps = (state) => ({
+  movies: getMovies(state),
+  activeGenre: getGenre(state),
+  shownMoviesCount: getShownMoviesCount(state),
 });
 
-const mapDispatchToProps = (dispatch: Dispatch<Action>) => ({
+const mapDispatchToProps = (dispatch: Dispatch<AppAction>) => ({
   setGenre(genre: string) {
     dispatch(ActionCreator.setGenre(genre));
     dispatch(ActionCreator.resetShownMovies());

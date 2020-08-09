@@ -27,12 +27,12 @@ const MoviePageOverview: React.FC<MoviePageOverviewProps> = ({movie}) => {
     director,
     cast,
     description,
-    comments,
+    rating,
+    scoresCount,
   } = movie;
   const castString = cast.join(`, `);
   const descriptionMarkup = description.split(`\n`).map((paragraph) => <p key={nanoid()}>{paragraph}</p>);
 
-  const rating = ((comments.map((comment) => Number(comment.rate)).reduce((a, b) => a + b)) / comments.length).toFixed(1);
   const ratingString = rating.toString().replace(`.`, `,`);
   const ratingDescription = getMovieRatingDescription(rating);
   return (
@@ -41,7 +41,7 @@ const MoviePageOverview: React.FC<MoviePageOverviewProps> = ({movie}) => {
         <div className="movie-rating__score">{ratingString}</div>
         <p className="movie-rating__meta">
           <span className="movie-rating__level">{ratingDescription}</span>
-          <span className="movie-rating__count">{comments.length} ratings</span>
+          <span className="movie-rating__count">{scoresCount} ratings</span>
         </p>
       </div>
 

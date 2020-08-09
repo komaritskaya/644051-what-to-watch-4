@@ -1,14 +1,12 @@
 import React from 'react';
 import moment from 'moment';
 import nanoid from 'nanoid';
-import {Movie, Comment} from '../../types';
+import {Comment} from '../../types';
+import {COMMENTS_COUNT} from '../../const';
+import {generateComments} from '../../mocks/comments';
 
-interface MoviePageReviewsProps {
-  movie: Movie;
-}
-
-const MoviePageReviews: React.FC<MoviePageReviewsProps> = ({movie}) => {
-  const {comments} = movie;
+const MoviePageReviews: React.FC<{}> = () => {
+  const comments = generateComments(COMMENTS_COUNT);
 
   const renderCommentsColumn = (commentsArray: Comment[]) => {
     return (

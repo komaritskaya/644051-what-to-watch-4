@@ -6,3 +6,13 @@ export const MOVIES_COUNT = 8;
 
 export const SHOWN_SIMILAR_MOVIES_COUNT = 4;
 
+export const COMMENTS_COUNT = 10;
+
+export const Path = {
+  FILMS: `films`,
+};
+
+export const Status = {
+  OK: 200,
+};
+

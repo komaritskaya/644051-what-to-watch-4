@@ -13,22 +13,35 @@ export interface Movie {
   genre: string;
   year: number;
   poster: string;
+  previewImage: string;
   cover: string;
+  background: string;
   director: string;
   cast: string[];
   description: string;
-  trailer: string;
   duration: moment.Duration;
-  comments: Comment[];
+  trailer: string;
+  video: string;
+  isFavorite: boolean;
+  rating: number;
+  scoresCount: number;
 }
 
-export interface RootState {
-  movies: Movie[];
+export interface AppState {
   activeGenre: string;
   shownMoviesCount: number;
 }
 
-export interface Action {
+export interface DataState {
+  movies: Movie[];
+}
+
+export interface AppAction {
   type: `SET_GENRE` | `ADD_SHOWN_MOVIES`| `RESET_SHOWN_MOVIES` | `ERROR`;
+  payload?: unknown;
+}
+
+export interface DataAction {
+  type: `LOAD_MOVIES` | `ERROR`;
   payload?: unknown;
 }
