@@ -1,8 +1,8 @@
 import moment from 'moment';
 import {Path} from '../../const';
-import {Movie, DataAction} from '../../types';
+import {Movie, DataAction, DataState} from '../../types';
 
-const initialState = {
+const initialState: DataState = {
   movies: [],
 };
 
@@ -15,7 +15,7 @@ const ActionCreator = {
   },
 };
 
-const moviesAdapter = (movies) => {
+export const moviesAdapter = (movies) => {
   return movies.map((movie) => {
     return {
       id: movie[`id`],

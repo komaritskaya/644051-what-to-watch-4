@@ -2,7 +2,7 @@ import moment from 'moment';
 
 export const movies = [
   {
-    id: `123`,
+    id: 123,
     title: `Some Film`,
     poster: `some-poster.jpg`,
     genre: `comedy`,
@@ -21,7 +21,7 @@ export const movies = [
     scoresCount: 50,
   },
   {
-    id: `456`,
+    id: 456,
     title: `Another Film`,
     poster: `another-poster.jpg`,
     genre: `drama`,

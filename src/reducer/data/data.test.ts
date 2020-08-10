@@ -1,6 +1,6 @@
 import MockAdapter from 'axios-mock-adapter';
 import {createAPI} from '../../api';
-import {reducer, Operation} from './data';
+import {reducer, Operation, moviesAdapter} from './data';
 import {movies} from '../../mocks/test-data';
 import {Path, Status} from '../../const';
 import {DataAction} from '../../types';
@@ -32,14 +32,14 @@ describe(`Operation work correctly`, () => {
 
     apiMock
       .onGet(`/${Path.FILMS}`)
-      .reply(Status.OK, [{fake: true}]);
+      .reply(Status.OK, movies);
 
     return moviesLoader(dispatch, () => {}, api)
       .then(() => {
         expect(dispatch).toHaveBeenCalledTimes(1);
         expect(dispatch).toHaveBeenNthCalledWith(1, {
           type: `LOAD_MOVIES`,
-          payload: [{fake: true}],
+          payload: moviesAdapter(movies),
         });
       });
   });
