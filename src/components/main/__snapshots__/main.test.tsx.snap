@@ -199,7 +199,7 @@ Array [
         >
           <a
             className="small-movie-card__image"
-            href="/123"
+            href="/movie/123"
             onClick={[Function]}
           />
           <h3
@@ -221,7 +221,7 @@ Array [
         >
           <a
             className="small-movie-card__image"
-            href="/456"
+            href="/movie/456"
             onClick={[Function]}
           />
           <h3

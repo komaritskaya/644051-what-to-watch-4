@@ -8,7 +8,7 @@ export interface Comment {
 }
 
 export interface Movie {
-  id: string;
+  id: number;
   title: string;
   genre: string;
   year: number;

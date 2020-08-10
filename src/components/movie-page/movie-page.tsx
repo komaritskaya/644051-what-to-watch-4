@@ -1,5 +1,5 @@
 import React from 'react';
-import {HashRouter as Router, Route, Switch, withRouter, RouteComponentProps} from 'react-router-dom';
+import {Route, Switch, withRouter, RouteComponentProps} from 'react-router-dom';
 import TabsList from '../tabs-list/tabs-list';
 import MoviePageOverview from '../movie-page-overview/movie-page-overview';
 import MoviePageDetails from '../movie-page-details/movie-page-details';
@@ -28,8 +28,12 @@ const Tab = {
   }
 };
 
-const MoviePage: React.FC<PropType> = ({allMovies, match: {params: {id}}}) => {
-  const movie = allMovies.find((m) => m.id === id) || allMovies[0];
+const MoviePage: React.FC<PropType> = ({allMovies, match}) => {
+  const {params: {id}, url} = match;
+  if (!allMovies.length) {
+    return <div>Loading...</div>;
+  }
+  const movie = allMovies.find((m) => m.id === Number(id)) || allMovies[0];
   const {
     title,
     genre,
@@ -97,16 +101,26 @@ const MoviePage: React.FC<PropType> = ({allMovies, match: {params: {id}}}) => {
             </div>
 
             <div className="movie-card__desc">
-              <Router>
-                <TabsList tabs={Object.values(Tab)} />
+              <TabsList
+                tabs={Object.values(Tab).map((tab) => ({...tab, link: `${url}${tab.link}`}))}
+              />
 
-                <Switch>
-                  <Route exact path={Tab.OVERVIEW.link} component={() => <MoviePageOverview movie={movie} />} />
-                  <Route path={Tab.DETAILS.link} component={() => <MoviePageDetails movie={movie} />} />
-                  <Route path={Tab.REVIEWS.link} component={() => <MoviePageReviews />} />
-                </Switch>
+              <Switch>
+                <Route
+                  exact
+                  path={`${url}${Tab.OVERVIEW.link}`}
+                  component={() => <MoviePageOverview movie={movie} />}
+                />
+                <Route
+                  path={`${url}${Tab.DETAILS.link}`}
+                  component={() => <MoviePageDetails movie={movie}/>}
+                />
+                <Route
+                  path={`${url}${Tab.REVIEWS.link}`}
+                  component={() => <MoviePageReviews />}
+                />
+              </Switch>
 
-              </Router>
             </div>
           </div>
         </div>

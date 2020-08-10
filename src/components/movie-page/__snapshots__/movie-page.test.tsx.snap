@@ -165,7 +165,7 @@ Array [
               >
                 <a
                   className="movie-nav__link"
-                  href="#/"
+                  href="//"
                   onClick={[Function]}
                 >
                   Overview
@@ -176,7 +176,7 @@ Array [
               >
                 <a
                   className="movie-nav__link"
-                  href="#/details"
+                  href="//details"
                   onClick={[Function]}
                 >
                   Details
@@ -187,7 +187,7 @@ Array [
               >
                 <a
                   className="movie-nav__link"
-                  href="#/reviews"
+                  href="//reviews"
                   onClick={[Function]}
                 >
                   Reviews
