@@ -10,7 +10,6 @@ interface TabsListProps {
 }
 
 const TabsList: React.FC<TabsListProps> = ({tabs}) => {
-  // console.log(tabs);
   return (
     <nav className="movie-nav movie-card__nav">
       <ul className="movie-nav__list">
@@ -19,7 +18,6 @@ const TabsList: React.FC<TabsListProps> = ({tabs}) => {
             path: tab.link,
             exact: true
           });
-          console.log(tab.link);
           return (
             <li key={nanoid()} className={match ? `movie-nav__item movie-nav__item--active` : `movie-nav__item`}>
               <Link to={tab.link} className="movie-nav__link">

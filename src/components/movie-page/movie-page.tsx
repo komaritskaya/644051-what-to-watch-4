@@ -6,6 +6,7 @@ import MoviePageDetails from '../movie-page-details/movie-page-details';
 import MoviePageReviews from '../movie-page-reviews/movie-page-reviews';
 import MoreLikeThis from '../more-like-this/more-like-this';
 import {Movie} from '../../types';
+import {comments} from '../../mocks/comments';
 
 interface MoviePageProps {
   allMovies: Movie[];
@@ -29,7 +30,7 @@ const Tab = {
 };
 
 const MoviePage: React.FC<PropType> = ({allMovies, match}) => {
-  const {params: {id}, url} = match;
+  const {params: {id}, url, path} = match;
   if (!allMovies.length) {
     return <div>Loading...</div>;
   }
@@ -108,16 +109,16 @@ const MoviePage: React.FC<PropType> = ({allMovies, match}) => {
               <Switch>
                 <Route
                   exact
-                  path={`${url}${Tab.OVERVIEW.link}`}
+                  path={`${path}${Tab.OVERVIEW.link}`}
                   component={() => <MoviePageOverview movie={movie} />}
                 />
                 <Route
-                  path={`${url}${Tab.DETAILS.link}`}
+                  path={`${path}${Tab.DETAILS.link}`}
                   component={() => <MoviePageDetails movie={movie}/>}
                 />
                 <Route
-                  path={`${url}${Tab.REVIEWS.link}`}
-                  component={() => <MoviePageReviews />}
+                  path={`${path}${Tab.REVIEWS.link}`}
+                  component={() => <MoviePageReviews comments={comments} />}
                 />
               </Switch>
 
