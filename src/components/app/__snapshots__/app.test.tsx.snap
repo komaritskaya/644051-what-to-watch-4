@@ -9,8 +9,8 @@ Array [
       className="movie-card__bg"
     >
       <img
-        alt="Another Film"
-        src="another-bg-poster.jpg"
+        alt="Some Film"
+        src="some-bg-poster.jpg"
       />
     </div>
     <h1
@@ -69,9 +69,9 @@ Array [
           className="movie-card__poster"
         >
           <img
-            alt="Another Film poster"
+            alt="Some Film poster"
             height="327"
-            src="another-poster.jpg"
+            src="some-poster.jpg"
             width="218"
           />
         </div>
@@ -81,7 +81,7 @@ Array [
           <h2
             className="movie-card__title"
           >
-            Another Film
+            Some Film
           </h2>
           <p
             className="movie-card__meta"
@@ -89,7 +89,7 @@ Array [
             <span
               className="movie-card__genre"
             >
-              drama
+              comedy
             </span>
             <span
               className="movie-card__year"
