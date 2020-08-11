@@ -23,7 +23,7 @@ it(`Render App`, () => {
     .create(
         <Provider store={store}>
           <App
-            currentMovie={movies[0]}
+            // currentMovie={movies[0]}
             movies={movies}
           />
         </Provider>

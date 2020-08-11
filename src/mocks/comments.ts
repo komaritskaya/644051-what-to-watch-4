@@ -5,6 +5,7 @@ import {
   getSingleRandomItemFromArray
 } from '../utils';
 import {Comment} from '../types';
+import {COMMENTS_COUNT} from '../const';
 
 const USERS = [
   `Tim Macoveev`,
@@ -37,3 +38,6 @@ export const generateComments = (count) => {
     .fill(``)
     .map(generateComment);
 };
+
+export const comments = generateComments(COMMENTS_COUNT);
+

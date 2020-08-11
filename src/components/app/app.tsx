@@ -25,7 +25,7 @@ const App: React.FC<AppProps> = ({
   activeGenre,
   shownMoviesCount,
 }) => {
-  const currentMovie = movies.length && getSingleRandomItemFromArray(movies);
+  const currentMovie = movies.length && movies[0];
   return (
     <BrowserRouter>
       <Switch>

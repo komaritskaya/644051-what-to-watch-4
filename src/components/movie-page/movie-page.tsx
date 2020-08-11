@@ -6,6 +6,7 @@ import MoviePageDetails from '../movie-page-details/movie-page-details';
 import MoviePageReviews from '../movie-page-reviews/movie-page-reviews';
 import MoreLikeThis from '../more-like-this/more-like-this';
 import {Movie} from '../../types';
+import {comments} from '../../mocks/comments';
 
 interface MoviePageProps {
   allMovies: Movie[];
@@ -117,7 +118,7 @@ const MoviePage: React.FC<PropType> = ({allMovies, match}) => {
                 />
                 <Route
                   path={`${url}${Tab.REVIEWS.link}`}
-                  component={() => <MoviePageReviews />}
+                  component={() => <MoviePageReviews comments={comments} />}
                 />
               </Switch>
 
