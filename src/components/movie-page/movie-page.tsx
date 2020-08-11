@@ -30,7 +30,7 @@ const Tab = {
 };
 
 const MoviePage: React.FC<PropType> = ({allMovies, match}) => {
-  const {params: {id}, url} = match;
+  const {params: {id}, url, path} = match;
   if (!allMovies.length) {
     return <div>Loading...</div>;
   }
@@ -109,15 +109,15 @@ const MoviePage: React.FC<PropType> = ({allMovies, match}) => {
               <Switch>
                 <Route
                   exact
-                  path={`${url}${Tab.OVERVIEW.link}`}
+                  path={`${path}${Tab.OVERVIEW.link}`}
                   component={() => <MoviePageOverview movie={movie} />}
                 />
                 <Route
-                  path={`${url}${Tab.DETAILS.link}`}
+                  path={`${path}${Tab.DETAILS.link}`}
                   component={() => <MoviePageDetails movie={movie}/>}
                 />
                 <Route
-                  path={`${url}${Tab.REVIEWS.link}`}
+                  path={`${path}${Tab.REVIEWS.link}`}
                   component={() => <MoviePageReviews comments={comments} />}
                 />
               </Switch>

@@ -40,7 +40,7 @@ const App: React.FC<AppProps> = ({
           />
         </Route>
 
-        <Route exact path="/movie/:id">
+        <Route path="/movie/:id">
           <MoviePage
             allMovies={movies}
           />
