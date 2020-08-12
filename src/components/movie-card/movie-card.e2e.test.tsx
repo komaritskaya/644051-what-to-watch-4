@@ -20,6 +20,7 @@ it(`Should movie card be hovered`, () => {
           onCardHover={onCardHover}
           onCardLeave={()=> {}}
           isActive={false}
+          isPlaying={true}
         />
       </Router>
   );

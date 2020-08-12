@@ -11,6 +11,9 @@ it(`Should Movies List component render correctly`, () => {
         <Router>
           <MoviesList
             movies={movies}
+            onCardHover={() => {}}
+            onCardLeave={() => {}}
+            activeMovieId={movies[0].id}
           />
         </Router>
     ).toJSON();

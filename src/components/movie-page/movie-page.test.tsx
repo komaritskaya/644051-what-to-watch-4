@@ -10,6 +10,7 @@ it(`Render Movie Page`, () => {
         <Router>
           <MoviePage
             allMovies={movies}
+            authStatus={`401`}
           />
         </Router>
     ).toJSON();

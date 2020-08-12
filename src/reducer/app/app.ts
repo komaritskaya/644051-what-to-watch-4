@@ -1,9 +1,7 @@
-// import {movies} from '../../mocks/films';
 import {AppState, AppAction} from '../../types';
 import {MOVIES_COUNT} from '../../const';
 
 const initialState: AppState = {
-  // movies,
   activeGenre: null,
   shownMoviesCount: MOVIES_COUNT,
 };

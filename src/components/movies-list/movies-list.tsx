@@ -7,7 +7,7 @@ interface MoviesListProps {
   movies: Movie[];
   onCardHover: (id: string) => void;
   onCardLeave: () => void;
-  activeMovieId: string;
+  activeMovieId: number;
 }
 
 const MovieCardWrapped = withCardHover(MovieCard);

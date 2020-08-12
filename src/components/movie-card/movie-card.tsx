@@ -5,7 +5,7 @@ import {Movie} from '../../types';
 
 interface MovieCardProps {
   movie: Movie;
-  onCardHover: (id: string) => void;
+  onCardHover: (id: number) => void;
   onCardLeave: () => void;
   isActive: boolean;
   isPlaying: boolean;
@@ -26,7 +26,7 @@ const MovieCard: React.FC<MovieCardProps> = ({movie, onCardHover, onCardLeave, i
     >
       <Link
         className="small-movie-card__image"
-        to={`/movie/${movie.id}`}
+        to={`/films/${movie.id}`}
       >
         <VideoPlayer
           poster={previewImage}
@@ -37,7 +37,7 @@ const MovieCard: React.FC<MovieCardProps> = ({movie, onCardHover, onCardLeave, i
       <h3 className="small-movie-card__title">
         <Link
           className="small-movie-card__link"
-          to={`/${movie.id}`}
+          to={`/films/${movie.id}`}
         >
           {title}
         </Link>

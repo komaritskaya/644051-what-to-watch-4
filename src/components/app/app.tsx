@@ -47,7 +47,7 @@ const App: React.FC<AppProps> = ({
           />
         </Route>
 
-        <Route path="/movie/:id">
+        <Route path="/films/:id">
           <MoviePage
             allMovies={movies}
             authStatus={authStatus}

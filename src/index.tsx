@@ -4,7 +4,6 @@ import {createStore, applyMiddleware, compose} from 'redux';
 import thunk from 'redux-thunk';
 import {Provider} from 'react-redux';
 import 'moment/locale/ru';
-// import {movies, currentMovie} from './mocks/films';
 import reducer from './reducer/reducer';
 import App from './components/app/app';
 import {createAPI} from './api';
@@ -32,10 +31,7 @@ store.dispatch(UserOperation.checkAuth());
 
 ReactDOM.render(
     <Provider store={store}>
-      <App
-        // currentMovie={currentMovie}
-        // movies={movies}
-      />
+      <App />
     </Provider>, document.querySelector(`#root`));
 
 
