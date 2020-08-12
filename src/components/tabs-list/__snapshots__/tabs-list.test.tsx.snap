@@ -12,7 +12,7 @@ exports[`Render Tabs List 1`] = `
     >
       <a
         className="movie-nav__link"
-        href="#/"
+        href="/"
         onClick={[Function]}
       >
         Overview
@@ -23,7 +23,7 @@ exports[`Render Tabs List 1`] = `
     >
       <a
         className="movie-nav__link"
-        href="#/details"
+        href="/details"
         onClick={[Function]}
       >
         Details
@@ -34,7 +34,7 @@ exports[`Render Tabs List 1`] = `
     >
       <a
         className="movie-nav__link"
-        href="#/reviews"
+        href="/reviews"
         onClick={[Function]}
       >
         Reviews

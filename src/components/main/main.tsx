@@ -2,6 +2,7 @@ import React from 'react';
 import MoviesList from '../movies-list/movies-list';
 import GenresList from '../genres-list/genres-list';
 import ShowMoreBtn from '../show-more-btn/show-more-btn';
+import Header from '../header/header';
 import withActiveMovie from '../../hocs/with-active-movie/with-active-movie';
 import {Movie} from '../../types';
 
@@ -12,6 +13,7 @@ interface MainProps {
   setGenre: (genre: string | null) => void;
   addShownMovies: (count: number) => void;
   shownMoviesCount: number;
+  authStatus: string;
 }
 
 const MoviesListWrapped = withActiveMovie(MoviesList);
@@ -31,6 +33,7 @@ const Main: React.FC<MainProps> = ({
   setGenre,
   addShownMovies,
   shownMoviesCount,
+  authStatus,
 }: MainProps) => {
   const {title, genre, year, cover, poster} = currentMovie;
   const filteredMovies = filterMoviesByGenre(movies, activeGenre);
@@ -44,21 +47,7 @@ const Main: React.FC<MainProps> = ({
 
         <h1 className="visually-hidden">WTW</h1>
 
-        <header className="page-header movie-card__head">
-          <div className="logo">
-            <a className="logo__link">
-              <span className="logo__letter logo__letter--1">W</span>
-              <span className="logo__letter logo__letter--2">T</span>
-              <span className="logo__letter logo__letter--3">W</span>
-            </a>
-          </div>
-
-          <div className="user-block">
-            <div className="user-block__avatar">
-              <img src="img/avatar.jpg" alt="User avatar" width="63" height="63" />
-            </div>
-          </div>
-        </header>
+        <Header authStatus={authStatus} />
 
         <div className="movie-card__wrap">
           <div className="movie-card__info">

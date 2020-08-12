@@ -1,15 +1,14 @@
 import React from 'react';
 import {BrowserRouter as Router} from 'react-router-dom';
 import renderer from 'react-test-renderer';
-import TabsList from './tabs-list';
-import {tabs} from '../../mocks/test-data';
+import Header from './header';
 
-it(`Render Tabs List`, () => {
+it(`Render Header`, () => {
   const tree = renderer
     .create(
         <Router>
-          <TabsList
-            tabs={tabs}
+          <Header
+            authStatus={`401`}
           />
         </Router>
     ).toJSON();

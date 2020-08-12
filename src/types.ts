@@ -36,6 +36,10 @@ export interface DataState {
   movies: Movie[];
 }
 
+export interface UserState {
+  authorizationStatus: string;
+}
+
 export interface AppAction {
   type: `SET_GENRE` | `ADD_SHOWN_MOVIES`| `RESET_SHOWN_MOVIES` | `ERROR`;
   payload?: unknown;
@@ -43,5 +47,10 @@ export interface AppAction {
 
 export interface DataAction {
   type: `LOAD_MOVIES` | `ERROR`;
+  payload?: unknown;
+}
+
+export interface UserAction {
+  type: `REQUIRE_AUTHORIZATION` | `ERROR`;
   payload?: unknown;
 }
