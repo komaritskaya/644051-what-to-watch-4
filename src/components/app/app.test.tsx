@@ -5,6 +5,7 @@ import configureStore from 'redux-mock-store';
 import App from './app';
 import {movies} from '../../mocks/test-data';
 import NameSpace from '../../reducer/name-space';
+import {AuthorizationStatus} from '../../reducer/user/user';
 
 const mockStore = configureStore([]);
 
@@ -17,13 +18,15 @@ it(`Render App`, () => {
     [NameSpace.APP]: {
       activeGenre: movies[0].genre,
     },
+    [NameSpace.USER]: {
+      authorizationStatus: AuthorizationStatus.NO_AUTH,
+    },
   });
 
   const tree = renderer
     .create(
         <Provider store={store}>
           <App
-            // currentMovie={movies[0]}
             movies={movies}
           />
         </Provider>

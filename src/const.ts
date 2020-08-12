@@ -10,9 +10,17 @@ export const COMMENTS_COUNT = 10;
 
 export const Path = {
   FILMS: `films`,
+  LOGIN: `login`,
 };
 
 export const Status = {
   OK: 200,
+  UNAUTHORIZED: 401,
+  BAD_REQUEST: 400,
+};
+
+export const Auth = {
+  NO_AUTH: `NO_AUTH`,
+  AUTH: `AUTH`,
 };
 

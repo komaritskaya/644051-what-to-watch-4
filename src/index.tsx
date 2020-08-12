@@ -8,9 +8,16 @@ import 'moment/locale/ru';
 import reducer from './reducer/reducer';
 import App from './components/app/app';
 import {createAPI} from './api';
-import {Operation} from './reducer/data/data';
+import {Operation as DataOperation} from './reducer/data/data';
+import {ActionCreator, Operation as UserOperation} from './reducer/user/user';
+import {Auth} from './const';
 
-const api = createAPI();
+const onUnauthorized = () => {
+  // eslint-disable-next-line @typescript-eslint/no-use-before-define
+  store.dispatch(ActionCreator.requireAuthorization(Auth.NO_AUTH));
+};
+
+const api = createAPI(onUnauthorized);
 
 const store = createStore(
     reducer,
@@ -20,7 +27,8 @@ const store = createStore(
     )
 );
 
-store.dispatch(Operation.loadMovies());
+store.dispatch(DataOperation.loadMovies());
+store.dispatch(UserOperation.checkAuth());
 
 ReactDOM.render(
     <Provider store={store}>
